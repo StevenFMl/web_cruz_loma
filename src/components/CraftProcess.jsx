@@ -52,8 +52,8 @@ export default function CraftProcess() {
   };
 
   const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] } }
   };
 
   return (
@@ -67,8 +67,8 @@ export default function CraftProcess() {
           className="text-center mb-20 md:mb-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="flex items-center justify-center gap-4 mb-6">
              <div className="w-10 h-px bg-[#4d7c0f]"></div>
