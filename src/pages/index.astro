@@ -1,11 +1,31 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import AgeVerification from '../components/AgeVerification.jsx';
+import Navbar from '../components/Navbar.jsx';
+import HeroSection from '../components/HeroSection.jsx';
+import OurHistory from '../components/OurHistory.jsx';
+import OurBeers from '../components/OurBeers.jsx';
+import CraftProcess from '../components/CraftProcess.jsx';
+import Footer from '../components/Footer.jsx';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Cruz Loma | Cervecería Artesanal Premium">
+  <!-- Age Gate runs on client-only to avoid SSR mismatch with sessionStorage -->
+  <AgeVerification client:only="react" />
+
+  <!-- Sticky Navbar -->
+  <Navbar client:load />
+
+  <main>
+    <HeroSection client:load />
+    <OurHistory client:visible />
+    <OurBeers client:visible />
+    <section id="proceso">
+      <CraftProcess client:visible />
+    </section>
+  </main>
+
+  <section id="footer">
+    <Footer client:idle />
+  </section>
 </Layout>
