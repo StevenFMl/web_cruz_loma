@@ -21,9 +21,9 @@ export default function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -25, opacity: 0 }}
+      initial={{ y: -15, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 90, damping: 20, mass: 0.8 }}
+      transition={{ type: "spring", stiffness: 120, damping: 20, mass: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${scrolled
           ? 'bg-[#1a1512]/95 backdrop-blur-md border-b-[3px] border-[#d97706]/80 py-2 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
           : 'bg-gradient-to-b from-black/80 to-transparent py-4'
@@ -38,9 +38,9 @@ export default function Navbar() {
               src="/logo-cruz-loma.svg"
               alt="Cruz Loma Logo"
               className="w-[360px] sm:w-[380px] md:w-auto md:h-28 lg:h-36 object-contain drop-shadow-[0_0_15px_rgba(217,119,6,0.3)] origin-left"
-              initial={{ opacity: 0, scale: 0.8, y: 15 }}
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 120, damping: 14, delay: 0.15 }}
+              transition={{ type: "spring", stiffness: 150, damping: 12, delay: 0.05 }}
               whileHover={{
                 scale: 1.05,
                 filter: "drop-shadow(0px 0px 20px rgba(217,119,6,0.6)) brightness(1.15)"
@@ -57,7 +57,7 @@ export default function Navbar() {
               href={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.2 + (i * 0.1) }}
+              transition={{ type: "spring", stiffness: 150, damping: 15, delay: 0.1 + (i * 0.05) }}
               className="text-[12px] lg:text-[13px] font-sans font-medium tracking-widest text-stone-300 hover:text-[#d97706] transition-colors duration-300 uppercase relative group whitespace-nowrap"
             >
               {link.label}
@@ -71,7 +71,7 @@ export default function Navbar() {
           className="flex-none md:flex-1 flex justify-end"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.3 }}
+          transition={{ type: "spring", stiffness: 150, damping: 15, delay: 0.15 }}
         >
           <a
             href="#cervezas"
