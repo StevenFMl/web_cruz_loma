@@ -25,33 +25,29 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 120, damping: 20, mass: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-        ? 'bg-[#1a1512]/95 backdrop-blur-md border-b-[1px] border-[#d97706]/40 py-1 sm:py-2 shadow-xl'
-        : 'bg-gradient-to-b from-black/80 to-transparent py-2 md:py-3'
+        ? 'bg-[#1a1512]/95 backdrop-blur-md border-b-[1px] border-[#d97706]/40 shadow-xl py-0'
+        : 'bg-gradient-to-b from-black/80 to-transparent'
         }`}
     >
       <div className="w-full px-6 md:px-12 lg:px-16 mx-auto flex items-center justify-between">
 
         {/* Left: Brand Logo */}
-        <div className="flex-1 md:flex-1 flex justify-start">
-          <a href="#" className="flex items-center group relative z-50">
+        <div className="flex-1 flex justify-start items-start py-0">
+          <a href="#" className="flex items-start group -ml-24 sm:-ml-16 md:-ml-12 lg:-ml-20 -mt-6 md:-mt-8 lg:-mt-10 transition-all duration-500">
             <motion.img
               src="/logo-cruz-loma.svg"
               alt="Cruz Loma Logo"
-              /* Making the logo much smaller and responsive to scroll state */
-              className={`object-contain drop-shadow-[0_0_15px_rgba(217,119,6,0.2)] origin-left transition-all duration-500 ${scrolled ? 'h-10 sm:h-12 md:h-14 lg:h-16' : 'h-14 sm:h-16 md:h-16 lg:h-20'} w-auto`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              whileHover={{
-                scale: 1.05,
-                filter: "drop-shadow(0px 0px 15px rgba(217,119,6,0.4)) brightness(1.1)"
-              }}
+              className={`object-contain object-left origin-top-left transition-all duration-700 ease-[0.25,0.1,0.25,1] ${scrolled
+                ? 'h-32 sm:h-32 md:h-28 lg:h-32 w-auto max-w-[80vw] md:max-w-none'
+                : 'h-40 sm:h-40 md:h-36 lg:h-44 w-auto max-w-[85vw] md:max-w-none'
+                }`}
+              whileHover={{ scale: 1.04 }}
             />
           </a>
         </div>
 
         {/* Center: Desktop Navigation */}
-        <nav className="hidden md:flex flex-1 justify-center items-center gap-8 lg:gap-12">
+        <nav className="hidden md:flex flex-1 justify-center items-center gap-8 lg:gap-12 self-center py-3">
           {navLinks.map((link, i) => (
             <motion.a
               key={link.href}
@@ -67,7 +63,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right: CTA Banner/Button & Mobile Hamburger */}
+        {/* Right: CTA Button & Mobile Hamburger */}
         <motion.div
           className="flex-none md:flex-1 flex justify-end items-center z-50"
           initial={{ opacity: 0, x: 20 }}
