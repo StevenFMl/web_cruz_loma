@@ -19,6 +19,7 @@ export default function OurHistory() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ willChange: "transform, opacity" }}
           >
             <div className="relative p-3 border border-[#453327] bg-[#221c18] rounded-sm transform rotate-[-2deg] hover:rotate-0 transition-all duration-500 shadow-xl">
               <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#d97706]"></div>
@@ -40,6 +41,7 @@ export default function OurHistory() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            style={{ willChange: "transform, opacity" }}
           >
             <div className="flex items-center gap-4 mb-6">
               <span className="text-[#4d7c0f]">
@@ -72,6 +74,7 @@ export default function OurHistory() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.8 }}
+              style={{ willChange: "opacity" }}
             >
               <div className="inline-flex items-center gap-4 py-3 px-6 bg-[#221c18] border border-[#453327] rounded-sm shadow-inner">
                 <span className="text-3xl font-vintage text-[#d97706]">100%</span>

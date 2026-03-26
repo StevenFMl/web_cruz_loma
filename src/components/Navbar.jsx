@@ -24,6 +24,7 @@ export default function Navbar() {
       initial={{ y: -15, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 120, damping: 20, mass: 0.5 }}
+      style={{ willChange: "transform, opacity" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
         ? 'bg-[#1a1512]/95 backdrop-blur-md border-b-[1px] border-[#d97706]/40 shadow-xl py-0'
         : 'bg-gradient-to-b from-black/80 to-transparent'
@@ -97,7 +98,7 @@ export default function Navbar() {
             animate={{ opacity: 1, scaleY: 1 }}
             exit={{ opacity: 0, scaleY: 0 }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            style={{ originY: 0 }}
+            style={{ originY: 0, willChange: "transform, opacity" }}
             className="absolute top-full left-0 right-0 bg-[#1a1512]/95 backdrop-blur-xl z-40 flex flex-col items-center py-8 px-6 border-b-[2px] border-[#d97706] shadow-2xl"
           >
             <nav className="flex flex-col gap-6 items-center w-full">

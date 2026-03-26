@@ -46,14 +46,14 @@ export default function CraftProcess() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
 
   const item = {
     hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] } }
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } }
   };
 
   return (
@@ -69,6 +69,7 @@ export default function CraftProcess() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          style={{ willChange: "transform, opacity" }}
         >
           <div className="flex items-center justify-center gap-4 mb-6">
              <div className="w-10 h-px bg-[#4d7c0f]"></div>
@@ -91,7 +92,7 @@ export default function CraftProcess() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
         >
           {steps.map((step, index) => (
-            <motion.div key={index} variants={item} className="flex flex-col items-center text-center group">
+            <motion.div key={index} variants={item} className="flex flex-col items-center text-center group" style={{ willChange: "transform, opacity" }}>
               
               {/* Embossed icon container */}
               <div className="relative w-28 h-28 mb-8 flex items-center justify-center rounded-full bg-[#221c18] border border-[#453327] shadow-[inset_0_-4px_10px_rgba(0,0,0,0.5)] group-hover:border-[#d97706]/50 transition-colors duration-500">

@@ -31,34 +31,27 @@ export default function AgeVerification() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-2xl"
         >
           <motion.div
             initial={{ scale: 0.95, y: 20, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.95, y: -20, opacity: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full max-w-md p-10 text-center bg-[#1a1512] border-2 border-[#d97706]/20 rounded-sm relative shadow-2xl"
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="w-full max-w-md p-6 sm:p-10 flex flex-col items-center text-center bg-[#1a1512] border-2 border-[#d97706]/20 rounded-sm relative shadow-2xl will-change-transform"
             style={{
                backgroundImage: "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z\\' fill=\\'%23d97706\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')"
             }}
           >
-            {/* Ornate Top Divider */}
-            <div className="flex items-center justify-center gap-4 mb-6 opacity-60">
-               <div className="w-12 h-px bg-[#d97706]"></div>
-               <svg className="w-4 h-4 text-[#4d7c0f]" fill="currentColor" viewBox="0 0 24 24">
-                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" /> {/* Placeholder hop shape */}
-               </svg>
-               <div className="w-12 h-px bg-[#d97706]"></div>
+            {/* Logo */}
+            <div className="relative flex justify-center w-full h-40 sm:h-56 mb-8 mt-2 pointer-events-none">
+              <img 
+                src="/logo-cruz-loma.svg" 
+                alt="Cruz Loma Logo" 
+                className="absolute top-1/2 left-[52%] sm:left-[51%] -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[750px] md:w-[900px] max-w-none object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+              />
             </div>
-            
-            <h2 className="mb-2 text-4xl sm:text-5xl text-[#d97706] font-vintage drop-shadow-md">
-              CRUZ LOMA
-            </h2>
-            <p className="mb-8 text-xs uppercase tracking-[0.2em] text-[#4d7c0f] font-sans font-medium">
-              Cerveza Artesanal
-            </p>
             
             <p className="mb-10 text-base text-gray-300 font-sans tracking-wide leading-relaxed">
               ¿Eres mayor de edad para consumir alcohol en tu país de residencia?

@@ -11,13 +11,18 @@ export default function HeroSection() {
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
+        style={{ willChange: "transform, opacity" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a1512]/95 via-[#1a1512]/75 to-[#1a1512] z-10"></div>
-        {/* Warmer, tighter glow to avoid massive blur performance hit, with slight pulsing */}
+        {/* Warmer glow without heavy CSS blur filter for high performance */}
         <motion.div
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-lg h-[400px] bg-[#d97706]/20 blur-[90px] z-10 rounded-full pointer-events-none"
-          animate={{ opacity: [0.6, 1, 0.6], scale: [0.95, 1.05, 0.95] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[600px] z-10 rounded-full pointer-events-none opacity-60"
+          style={{ 
+             background: 'radial-gradient(circle, rgba(217,119,6,0.15) 0%, rgba(217,119,6,0) 70%)',
+             willChange: "opacity" 
+          }}
+          animate={{ opacity: [0.4, 0.8, 0.4] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         ></motion.div>
 
         <img
@@ -34,8 +39,9 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-col items-center"
+          style={{ willChange: "transform, opacity" }}
         >
           <div className="flex items-center gap-4 mb-6 md:mb-8">
             <span className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#d97706]/70"></span>
@@ -48,7 +54,8 @@ export default function HeroSection() {
               className="block"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              style={{ willChange: "transform, opacity" }}
             >
 
             </motion.span>
@@ -56,7 +63,8 @@ export default function HeroSection() {
               className="block mt-2 lg:mt-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              style={{ willChange: "transform, opacity" }}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#fde68a] via-[#fcd34d] to-[#d97706]">CERVEZA</span> ARTESANAL
             </motion.span>
@@ -65,9 +73,10 @@ export default function HeroSection() {
 
         <motion.h2
           className="text-[10px] sm:text-xs md:text-sm lg:text-base text-stone-300 font-sans tracking-[0.5em] uppercase font-light mb-12 drop-shadow-md"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          style={{ willChange: "transform, opacity" }}
         >
           El Sabor de la Mitad del Mundo
         </motion.h2>
@@ -75,7 +84,8 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          style={{ willChange: "transform, opacity" }}
         >
           <a
             href="#cervezas"
@@ -97,7 +107,7 @@ export default function HeroSection() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-[#d97706]/70"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 1, duration: 1 }}
       >
         <span className="text-[9px] uppercase tracking-[0.3em] font-sans hidden sm:block">Descubrir</span>
         <motion.div
