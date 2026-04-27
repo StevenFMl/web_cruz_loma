@@ -13,21 +13,22 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 60);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <motion.header
-      initial={{ y: -15, opacity: 0 }}
+      initial={{ y: -8, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 120, damping: 20, mass: 0.5 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
       style={{ willChange: "transform, opacity" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-        ? 'bg-[#1a1512]/95 backdrop-blur-md border-b-[1px] border-[#d97706]/40 shadow-xl py-0'
-        : 'bg-gradient-to-b from-black/80 to-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${scrolled
+        ? 'bg-carbon/75 backdrop-blur-xl border-b border-copper/20 shadow-[0_8px_30px_rgba(0,0,0,0.35)]'
+        : 'bg-transparent border-b border-transparent'
         }`}
     >
       <div className="w-full px-6 md:px-12 lg:px-16 mx-auto flex items-center justify-between">
@@ -38,6 +39,8 @@ export default function Navbar() {
             <motion.img
               src="/logo-cruz-loma.svg"
               alt="Cruz Loma Logo"
+              animate={{ opacity: scrolled ? 1 : 0.85 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
               className={`object-contain object-left origin-top-left transition-all duration-700 ease-[0.25,0.1,0.25,1] ${scrolled
                 ? 'h-32 sm:h-32 md:h-28 lg:h-32 w-auto max-w-[80vw] md:max-w-none'
                 : 'h-40 sm:h-40 md:h-36 lg:h-44 w-auto max-w-[85vw] md:max-w-none'
@@ -47,15 +50,24 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Center: Desktop Navigation */}
-        <nav className="hidden md:flex flex-1 justify-center items-center gap-8 lg:gap-12 self-center py-3">
+        {/* Center: Desktop Navigation — revealed on scroll */}
+        <nav
+          aria-hidden={!scrolled}
+          className={`hidden md:flex flex-1 justify-center items-center gap-8 lg:gap-12 self-center py-3 transition-opacity duration-500 ${scrolled ? '' : 'pointer-events-none'}`}
+        >
           {navLinks.map((link, i) => (
             <motion.a
               key={link.href}
               href={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 + (i * 0.1) }}
+              animate={{
+                opacity: scrolled ? 1 : 0,
+                y: scrolled ? 0 : -8,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: scrolled ? 0.08 + i * 0.07 : 0,
+              }}
               className="text-[11px] lg:text-[12px] font-sans font-medium tracking-[0.2em] text-stone-300 hover:text-[#d97706] transition-colors duration-300 uppercase relative group whitespace-nowrap"
             >
               {link.label}
@@ -67,20 +79,29 @@ export default function Navbar() {
         {/* Right: CTA Button & Mobile Hamburger */}
         <motion.div
           className="flex-none md:flex-1 flex justify-end items-center z-50"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          animate={{ opacity: scrolled ? 1 : 0.55 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <a
+          <motion.a
             href="#cervezas"
-            className="hidden md:flex items-center gap-2 px-5 py-2.5 text-[10px] lg:text-xs font-bold tracking-[0.2em] text-[#1a1512] uppercase transition-all duration-300 bg-gradient-to-b from-[#fcd34d] to-[#d97706] rounded-sm hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(217,119,6,0.4)] font-sans border border-[#b45309]"
+            animate={{
+              opacity: scrolled ? 1 : 0,
+              y: scrolled ? 0 : -6,
+            }}
+            transition={{
+              duration: 0.5,
+              ease: [0.25, 0.1, 0.25, 1],
+              delay: scrolled ? 0.08 + navLinks.length * 0.07 : 0,
+            }}
+            className={`hidden md:flex items-center gap-2 px-5 py-2.5 text-[10px] lg:text-xs font-bold tracking-[0.2em] text-[#1a1512] uppercase transition-all duration-300 bg-gradient-to-b from-[#fcd34d] to-[#d97706] rounded-sm hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(217,119,6,0.4)] font-sans border border-[#b45309] ${scrolled ? '' : 'pointer-events-none'}`}
           >
             <span className="whitespace-nowrap">Descubrir</span>
-          </a>
+          </motion.a>
 
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
             className="flex md:hidden flex-col justify-center items-center w-10 h-10 gap-1.5 relative rounded hover:bg-white/5 transition-colors group"
           >
             <span className={`block h-[2px] w-5 bg-gradient-to-r from-[#fcd34d] to-[#d97706] transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>

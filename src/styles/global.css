@@ -1,40 +1,52 @@
 @import "tailwindcss";
 
+/* ─── Cruz Loma · Editorial palette ────────────────────────────────
+   Carbon / asphalt base with beer-pour accents:
+     amber       — primary highlight, glassware glow
+     copper      — burnt copper, wax, hop seal
+     gold-mat    — matte foil, mid-tier accents
+     bone        — high-contrast type, "paper" tone
+*/
+@theme {
+  --color-carbon:    #0a0a0a;   /* near-black, deep matte */
+  --color-asphalt:   #18181b;   /* zinc-900, secondary surface */
+  --color-graphite:  #27272a;   /* zinc-800, hairlines */
+  --color-amber:     #d97706;   /* primary amber accent */
+  --color-copper:    #b87333;   /* burnt copper */
+  --color-copper-deep: #7c4a1e; /* shadow copper */
+  --color-gold-mat:  #c9a961;   /* matte foil gold */
+  --color-bone:      #e7e5e4;   /* warm bone, primary text on dark */
+  --color-ash:       #a8a29e;   /* secondary type */
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Rich, warm dark brown background reminiscent of dark wood/stout beer */
-    background-color: #1a1512; 
-    color: #f3f4f6; /* Gray-100 */
+    background-color: var(--color-carbon);
+    color: var(--color-bone);
   }
+
+  /* Editorial baseline: tight tracking on all-caps eyebrows */
+  ::-moz-selection { background: var(--color-copper); color: var(--color-carbon); }
+  ::selection      { background: var(--color-copper); color: var(--color-carbon); }
 }
 
-/* Subtle Wood/Paper Texture Overlay to enhance rustic feel */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 50;
-  opacity: 0.15;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
+/* ─── Custom scrollbar in burnt copper ──────────────────────────── */
+::-webkit-scrollbar           { width: 6px; }
+::-webkit-scrollbar-track     { background: var(--color-carbon); }
+::-webkit-scrollbar-thumb     { background: var(--color-copper-deep); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-copper); }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* ─── Editorial micro-rules ─────────────────────────────────────── */
+.rule-h { height: 1px; background: linear-gradient(to right, transparent, rgb(184 115 51 / 0.4), transparent); }
+.rule-v { width: 1px; background: linear-gradient(to bottom, transparent, rgb(184 115 51 / 0.4), transparent); }
+
+/* Marquee ticker animation for editorial bands */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-::-webkit-scrollbar-track {
-  background: #1a1512;
-}
-::-webkit-scrollbar-thumb {
-  background: #453327; 
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #d97706; /* Amber 600 */
+.animate-ticker {
+  animation: ticker 60s linear infinite;
+  will-change: transform;
 }

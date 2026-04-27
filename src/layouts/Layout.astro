@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Cruz Loma Cerveza Artesanal." } = Astro.props;
+const { title, description = "Cruz Loma — Cervecería artesanal de altura. Forjada en la Mitad del Mundo." } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,29 +17,115 @@ const { title, description = "Cruz Loma Cerveza Artesanal." } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
-    <!-- Typography requested: Ganache, Gotham Bold, Source Serif Variable -->
+
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Roboto+Slab:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    >
+
     <title>{title}</title>
   </head>
-  <body class="bg-[#1a1512] font-sans text-stone-300 antialiased overflow-x-hidden selection:bg-amber-600/30 selection:text-amber-200">
+  <body class="bg-carbon font-sans text-bone antialiased overflow-x-hidden selection:bg-copper selection:text-carbon">
+
+    <!-- Editorial vertical rule, runs the entire height as a magazine spine -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-y-0 left-6 hidden md:block z-40">
+      <div class="h-full w-px bg-gradient-to-b from-transparent via-copper/25 to-transparent"></div>
+    </div>
+    <div aria-hidden="true" class="pointer-events-none fixed inset-y-0 right-6 hidden md:block z-40">
+      <div class="h-full w-px bg-gradient-to-b from-transparent via-copper/25 to-transparent"></div>
+    </div>
+
+    <!-- Sidebar masthead — vertical caption that bleeds into the layout -->
+    <div aria-hidden="true" class="hidden lg:flex pointer-events-none fixed left-2 top-1/2 -translate-y-1/2 z-40 origin-center -rotate-90 items-center gap-3 text-[10px] tracking-[0.6em] uppercase text-bone/30 font-mono">
+      <span class="h-px w-8 bg-bone/20"></span>
+      <span>EST. Mitad del Mundo · 2.964 m.s.n.m.</span>
+      <span class="h-px w-8 bg-bone/20"></span>
+    </div>
+
     <slot />
+
+    <!-- Grain overlay sits ABOVE content for that printed-paper feel -->
+    <div aria-hidden="true" class="grain-overlay"></div>
   </body>
 </html>
 
 <style is:global>
-  /* Custom Font Classes matching requirements */
-  .font-ganache {
-    font-family: 'Ganache', 'Pacifico', cursive;
+  /* ─── Type system ────────────────────────────────────────────────
+     Editorial serif (Fraunces) — heritage, craft, optical sized.
+     Heavy slab (Roboto Slab 900) — magazine display, runs out of margins.
+     Sans (Inter) — minimalist body, captions, UI.
+     Mono (JetBrains Mono) — labels, numerals, micro-copy.
+  */
+  :root {
+    --font-editorial: "Fraunces", "Source Serif 4", Georgia, serif;
+    --font-slab:      "Roboto Slab", "Fraunces", Georgia, serif;
+    --font-sans:      "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono:      "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   }
-  .font-gotham {
-    font-family: 'Gotham Bold', 'Gotham', 'Montserrat', sans-serif;
-    font-weight: bold;
+
+  .font-editorial { font-family: var(--font-editorial); font-variation-settings: "opsz" 144, "SOFT" 30; }
+  .font-slab      { font-family: var(--font-slab); font-weight: 900; letter-spacing: -0.02em; }
+  .font-sans      { font-family: var(--font-sans); }
+  .font-mono      { font-family: var(--font-mono); }
+
+  /* Backwards-compatible aliases for components still on the old class names */
+  .font-vintage,
+  .font-ganache  { font-family: var(--font-editorial); font-variation-settings: "opsz" 144, "SOFT" 30; }
+  .font-source   { font-family: var(--font-editorial); }
+  .font-gotham   { font-family: var(--font-sans); font-weight: 700; letter-spacing: 0.04em; }
+
+  /* ─── Editorial helpers ──────────────────────────────────────── */
+  .editorial-rule {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(184,115,51,0.6), transparent);
   }
-  .font-source {
-    font-family: 'Source Serif Variable', 'Source Serif 4', serif;
+  .editorial-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgb(184 115 51);
+  }
+  .text-shadow-sharp {
+    text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  }
+
+  /* Big editorial display type that bleeds outside the safe area */
+  .display-bleed {
+    font-family: var(--font-slab);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.86;
+  }
+
+  /* ─── Grain overlay (printed-paper feel) ─────────────────────
+     Two-layer noise: fine monochromatic grain + coarser texture.
+     Tiled at fixed pixel sizes so the grain stays consistent across
+     viewports, mix-blend-mode: overlay so it integrates with both
+     dark surfaces and amber accents.
+  */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.11;
+    mix-blend-mode: overlay;
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 480 480' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.45 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
+    background-size: 240px 240px, 480px 480px;
+    background-repeat: repeat, repeat;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .grain-overlay { opacity: 0.06; }
   }
 </style>

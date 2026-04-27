@@ -3,115 +3,159 @@ import { motion } from 'framer-motion';
 
 const steps = [
   {
-    title: "Agua Pura",
-    desc: "Nuestra base cristalina. Extraída de fuentes andinas inmaculadas.",
-    icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
-    )
+    num: '01',
+    eyebrow: 'Fase I · Captación',
+    title: 'Agua de Altura',
+    body: 'Captada de los manantiales andinos a 2.964 metros sobre el nivel del mar. Filtrada durante siglos por la roca volcánica. Dura, mineral, viva.',
+    spec: 'pH 7.2  ·  2.964 m.s.n.m.',
+    image: 'https://images.unsplash.com/photo-1559825481-12a05cc00344?q=80&w=1600&auto=format&fit=crop',
   },
   {
-    title: "Maltas Tostadas",
-    desc: "Granos seleccionados y tostados a la perfección para cuerpo y color.",
-    icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    )
+    num: '02',
+    eyebrow: 'Fase II · Maceración',
+    title: 'Maltas Tostadas',
+    body: 'Granos seleccionados a mano y tostados en lotes pequeños. Cada perfil de tostado decide el color, el cuerpo y la dulzura del trago final.',
+    spec: '64°C  ·  60 min  ·  maceración',
+    image: 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=1600&auto=format&fit=crop',
   },
   {
-    title: "Lúpulo Fresco",
-    desc: "Aromas intensos y el amargor exacto que define nuestro carácter.",
-    icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-      </svg>
-    )
+    num: '03',
+    eyebrow: 'Fase III · Cocción',
+    title: 'Lúpulo Vivo',
+    body: 'Conos enteros, en frío y en caliente. El amargor exacto y los aromas cítricos, resinosos, herbales que firman el carácter de cada estilo.',
+    spec: 'Whirlpool  ·  Dry-hop',
+    image: 'https://images.unsplash.com/photo-1532634726-8b9fb99825c4?q=80&w=1600&auto=format&fit=crop',
   },
   {
-    title: "Levadura Activa",
-    desc: "El milagro de la fermentación y el corazón de nuestra cerveza.",
-    icon: (
-      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
-    )
-  }
+    num: '04',
+    eyebrow: 'Fase IV · Fermentación',
+    title: 'Reposo Largo',
+    body: 'Tres semanas mínimo en tanques de acero. Sin filtrar, sin atajos. La levadura termina su trabajo a su ritmo, no al nuestro.',
+    spec: '21 días  ·  18°C  ·  sin pasteurizar',
+    image: 'https://images.unsplash.com/photo-1514218953589-2d7d37efd2dc?q=80&w=1600&auto=format&fit=crop',
+  },
 ];
 
 export default function CraftProcess() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } }
-  };
-
   return (
-    <section className="py-24 md:py-32 bg-[#1a1512] border-t border-[#453327] relative overflow-hidden">
-      {/* Warm glow background element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#d97706]/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <section className="relative bg-carbon overflow-hidden border-t border-graphite/60">
 
-      <div className="container px-6 mx-auto max-w-7xl relative z-10">
-        
-        <motion.div 
-          className="text-center mb-20 md:mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          style={{ willChange: "transform, opacity" }}
-        >
-          <div className="flex items-center justify-center gap-4 mb-6">
-             <div className="w-10 h-px bg-[#4d7c0f]"></div>
-             <span className="text-xs uppercase tracking-[0.3em] font-sans font-bold text-[#4d7c0f]">
-               Trasmisión de Sabor
-             </span>
-             <div className="w-10 h-px bg-[#4d7c0f]"></div>
+      {/* Off-center vertical timeline rail */}
+      <div
+        aria-hidden="true"
+        className="hidden md:block pointer-events-none absolute left-[8%] top-[28rem] bottom-40 w-px bg-gradient-to-b from-transparent via-copper/30 to-transparent"
+      />
+
+      {/* ─── Masthead ──────────────────────────────────────────── */}
+      <header className="relative px-6 md:px-12 lg:px-20 max-w-[110rem] mx-auto pt-24 md:pt-40 pb-20 md:pb-32">
+        <div className="grid grid-cols-12 gap-4 md:gap-8 items-end">
+          <div className="col-span-12 md:col-span-6">
+            <p className="editorial-eyebrow mb-6">— Cuaderno de Bitácora · Nº 04</p>
+            <h2 className="font-slab uppercase text-bone text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.85] tracking-tight">
+              Cuatro<br />
+              <span className="text-copper">Elementos</span>
+            </h2>
           </div>
-          
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-vintage text-[#f3f4f6] drop-shadow-md">
-            Nuestro Proceso
-          </h2>
-        </motion.div>
 
-        <motion.div 
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
-        >
-          {steps.map((step, index) => (
-            <motion.div key={index} variants={item} className="flex flex-col items-center text-center group" style={{ willChange: "transform, opacity" }}>
-              
-              {/* Embossed icon container */}
-              <div className="relative w-28 h-28 mb-8 flex items-center justify-center rounded-full bg-[#221c18] border border-[#453327] shadow-[inset_0_-4px_10px_rgba(0,0,0,0.5)] group-hover:border-[#d97706]/50 transition-colors duration-500">
-                <div className="absolute inset-2 border border-[#d97706]/20 rounded-full"></div>
-                
-                <div className="text-[#a8a29e] group-hover:text-[#d97706] transition-colors duration-500 transform group-hover:scale-110">
-                  {step.icon}
-                </div>
-              </div>
+          <div className="col-span-12 md:col-span-5 md:col-start-8 mt-8 md:mt-0">
+            <div className="rule-h mb-6 w-20" />
+            <p className="font-editorial italic text-bone/75 text-xl md:text-2xl leading-snug max-w-md">
+              Una obsesión que se mide en grados, en horas, en silencio. Lo que entra al tanque importa menos que el tiempo que pasa dentro.
+            </p>
+          </div>
+        </div>
+      </header>
 
-              <h4 className="mb-4 text-3xl font-vintage text-white group-hover:text-[#d97706] transition-colors drop-shadow-sm">{step.title}</h4>
-              <p className="font-medium text-sm text-stone-400 font-sans tracking-wide leading-relaxed max-w-xs">
-                {step.desc}
-              </p>
-              
-            </motion.div>
-          ))}
-        </motion.div>
+      {/* ─── Phases ────────────────────────────────────────────── */}
+      <div className="relative px-6 md:px-12 lg:px-20 max-w-[110rem] mx-auto pb-32 md:pb-48">
+        {steps.map((step, i) => (
+          <PhaseRow key={step.num} step={step} reverse={i % 2 === 1} index={i} />
+        ))}
+      </div>
+
+      {/* ─── Closing colophon ──────────────────────────────────── */}
+      <div className="relative border-t border-graphite/50 px-6 md:px-12 lg:px-20 max-w-[110rem] mx-auto py-10 md:py-14 flex flex-col md:flex-row items-center justify-between gap-4">
+        <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-ash">
+          Fin del cuaderno · Cruz Loma
+        </span>
+        <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-copper">
+          Embotellado a 2.964 m.s.n.m.
+        </span>
       </div>
     </section>
+  );
+}
+
+function PhaseRow({ step, reverse, index }) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      style={{ willChange: 'transform, opacity' }}
+      className={`relative grid grid-cols-12 gap-4 md:gap-8 ${index === 0 ? 'mt-0' : 'mt-32 md:mt-56'}`}
+    >
+      {/* Giant guiding numeral — bleeds across the section */}
+      <span
+        aria-hidden="true"
+        className={`pointer-events-none select-none absolute z-0 font-slab leading-[0.78] tracking-[-0.06em] text-bone/[0.05] top-[-3rem] md:top-[-7rem] text-[12rem] sm:text-[16rem] md:text-[22rem] xl:text-[28rem] ${
+          reverse ? 'right-[-1rem] md:right-[-3rem]' : 'left-[-1rem] md:left-[-3rem]'
+        }`}
+      >
+        {step.num}
+      </span>
+
+      {/* IMAGE BLOCK */}
+      <div
+        className={`relative z-10 col-span-12 md:col-span-7 ${
+          reverse ? 'md:col-start-6' : 'md:col-start-1'
+        }`}
+      >
+        <div className="group relative">
+          {/* tactile rim brackets */}
+          <span aria-hidden="true" className="absolute -top-3 -left-3 w-10 h-10 border-t border-l border-copper/70 z-20" />
+          <span aria-hidden="true" className="absolute -bottom-3 -right-3 w-10 h-10 border-b border-r border-copper/70 z-20" />
+
+          <div className="relative overflow-hidden bg-asphalt aspect-[4/5] md:aspect-[5/4]">
+            <img
+              src={step.image}
+              alt={step.title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover grayscale sepia-[0.45] brightness-[0.82] contrast-[1.05] group-hover:grayscale-0 group-hover:sepia-0 group-hover:brightness-100 transition-[filter] duration-[2200ms] ease-out"
+            />
+            {/* depth gradient for type contrast */}
+            <div className="absolute inset-0 bg-gradient-to-t from-carbon/70 via-transparent to-transparent pointer-events-none" />
+
+            {/* Numeric stamp */}
+            <div className="absolute top-4 left-4 md:top-6 md:left-6 flex items-center gap-3">
+              <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-bone/70">Fase</span>
+              <span className="font-slab text-bone text-2xl md:text-3xl leading-none">{step.num}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* TEXT BLOCK */}
+      <div
+        className={`relative z-10 col-span-12 md:col-span-4 ${
+          reverse ? 'md:col-start-1' : 'md:col-start-9'
+        } flex flex-col justify-end pt-8 md:pt-0`}
+      >
+        <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-copper mb-4">
+          {step.eyebrow}
+        </p>
+        <h3 className="font-slab uppercase text-bone text-4xl md:text-5xl lg:text-6xl leading-[0.92] tracking-tight mb-6">
+          {step.title}
+        </h3>
+        <div className="rule-h w-20 mb-6" />
+        <p className="font-editorial text-bone/75 text-base md:text-lg leading-relaxed max-w-md">
+          {step.body}
+        </p>
+        <p className="font-mono text-[10px] tracking-[0.35em] uppercase text-ash mt-8 border-t border-graphite/60 pt-4">
+          {step.spec}
+        </p>
+      </div>
+    </motion.article>
   );
 }

@@ -7,22 +7,86 @@ import OurHistory from '../components/OurHistory.jsx';
 import OurBeers from '../components/OurBeers.jsx';
 import CraftProcess from '../components/CraftProcess.jsx';
 import Footer from '../components/Footer.jsx';
+import ChapterMark from '../components/ChapterMark.astro';
+
+const tickerWords = [
+  'Pale Ale',
+  'Irish Red',
+  'Sweet Stout',
+  'Black IPA',
+  'Weissbier',
+  'APA Maracuyá',
+  'Pumpkin',
+  'Belgian Tripel',
+  'India Pale Ale',
+];
+const tickerLoop = [...tickerWords, ...tickerWords];
 ---
 
-<Layout title="Cruz Loma | Cervecería Artesanal Premium">
-  <!-- Age Gate runs on client-only to avoid SSR mismatch with sessionStorage -->
-  <AgeVerification client:only="react" />
+<Layout title="Cruz Loma — Cervecería Artesanal">
 
-  <!-- Sticky Navbar -->
+  <AgeVerification client:only="react" />
   <Navbar client:load />
 
-  <main>
-    <HeroSection client:load />
-    <OurHistory client:visible />
-    <OurBeers client:visible />
-    <section id="proceso">
-      <CraftProcess client:visible />
+  <main class="relative bg-carbon">
+
+    {/* ──────────── I · MANIFIESTO ──────────── */}
+    <article id="hero" class="relative">
+      <ChapterMark numeral="I" label="Manifiesto" caption="El sabor de la altura, embotellado." />
+      <HeroSection client:load />
+    </article>
+
+    {/* Editorial ticker — slab type bleeding across the page */}
+    <section
+      aria-hidden="true"
+      class="relative overflow-hidden border-y border-graphite/60 bg-asphalt/40 py-6 md:py-10"
+    >
+      <div class="flex w-max animate-ticker whitespace-nowrap">
+        {tickerLoop.map((w) => (
+          <span class="flex items-center gap-10 pr-10">
+            <span class="font-slab text-5xl md:text-7xl lg:text-8xl text-bone/15 uppercase tracking-tight">
+              {w}
+            </span>
+            <span class="text-copper text-2xl md:text-4xl">✦</span>
+          </span>
+        ))}
+      </div>
     </section>
+
+    {/* ──────────── II · ORIGEN ──────────── */}
+    <article id="historia" class="relative">
+      <ChapterMark numeral="II" label="Origen" caption="Mitad del Mundo · 2.964 m.s.n.m." />
+      <OurHistory client:visible />
+    </article>
+
+    {/* Editorial pull-quote — magazine spread divider */}
+    <aside class="relative bg-carbon py-24 md:py-40 overflow-hidden border-t border-graphite/60">
+      <div class="px-6 md:px-12 lg:px-20 max-w-[110rem] mx-auto">
+        <p class="editorial-eyebrow mb-6">— Editorial · Nº 01</p>
+        <blockquote class="font-editorial italic text-bone/90 text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight max-w-5xl">
+          "No fabricamos cerveza. <span class="text-copper not-italic">Destilamos</span> el carácter de una montaña en un vaso."
+        </blockquote>
+        <div class="mt-12 flex items-center gap-6">
+          <span class="h-px w-16 bg-copper"></span>
+          <span class="font-mono text-xs tracking-[0.4em] uppercase text-ash">
+            Maestro Cervecero · Cruz Loma
+          </span>
+        </div>
+      </div>
+    </aside>
+
+    {/* ──────────── III · CARTA ──────────── */}
+    <article id="cervezas" class="relative">
+      <ChapterMark numeral="III" label="La Carta" caption="Nueve estilos. Nueve carácteres." />
+      <OurBeers client:visible />
+    </article>
+
+    {/* ──────────── IV · MÉTODO ──────────── */}
+    <article id="proceso" class="relative">
+      <ChapterMark numeral="IV" label="Método" caption="Cuatro elementos. Una obsesión." />
+      <CraftProcess client:visible />
+    </article>
+
   </main>
 
   <section id="footer">
