@@ -45,11 +45,11 @@ export default function AgeVerification() {
             }}
           >
             {/* Logo */}
-            <div className="relative flex justify-center w-full h-40 sm:h-56 mb-8 mt-2 pointer-events-none">
+            <div className="relative flex justify-center w-full h-28 sm:h-40 md:h-56 mb-4 sm:mb-8 mt-2 pointer-events-none">
               <img 
                 src="/logo-cruz-loma.svg" 
                 alt="Cruz Loma Logo" 
-                className="absolute top-1/2 left-[52%] sm:left-[51%] -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[750px] md:w-[900px] max-w-none object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                className="absolute top-1/2 left-[52%] sm:left-[51%] -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] md:w-[750px] max-w-none object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
               />
             </div>
             

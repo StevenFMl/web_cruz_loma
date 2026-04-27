@@ -33,7 +33,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Main Content: Dynamic & Fast & Elegant */}
-      <div className="relative z-20 flex flex-col items-center text-center px-6 w-full mt-24">
+      <div className="relative z-20 flex flex-col items-center text-center px-6 w-full mt-36 sm:mt-40 md:mt-32 lg:mt-24">
 
         {/* Dynamic Tagline */}
         <motion.div
