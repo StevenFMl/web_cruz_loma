@@ -1,22 +1,42 @@
 @import "tailwindcss";
 
-/* ─── Cruz Loma · Editorial palette ────────────────────────────────
-   Carbon / asphalt base with beer-pour accents:
-     amber       — primary highlight, glassware glow
-     copper      — burnt copper, wax, hop seal
-     gold-mat    — matte foil, mid-tier accents
-     bone        — high-contrast type, "paper" tone
+/* ─── Cruz Loma · Paleta forjada estrictamente del logo ────────────
+   Negros tabaco / asfalto + familia naranja-cobre + maderas quemadas
+   + verdes andinos del logo. Sin tonos inventados. Cero corporativo.
+
+   Hex obtenidos de public/logo-cruz-loma.svg:
+     Naranjas:   #ec6608 #ef7d00 #f39200 #f28e00 #f08401 #ee7402 #ee7203
+     Maderas:    #6d300e #74360f #804111 #874712 #8a4913
+     Amarillos:  #fdc75f
+     Verdes:     #006633 #3aaa35 #c8d400 #dce169
 */
 @theme {
-  --color-carbon:    #0a0a0a;   /* near-black, deep matte */
-  --color-asphalt:   #18181b;   /* zinc-900, secondary surface */
-  --color-graphite:  #27272a;   /* zinc-800, hairlines */
-  --color-amber:     #d97706;   /* primary amber accent */
-  --color-copper:    #b87333;   /* burnt copper */
-  --color-copper-deep: #7c4a1e; /* shadow copper */
-  --color-gold-mat:  #c9a961;   /* matte foil gold */
-  --color-bone:      #e7e5e4;   /* warm bone, primary text on dark */
-  --color-ash:       #a8a29e;   /* secondary type */
+  /* Base muy oscura — tabaco/carbón quemado, NO negro digital */
+  --color-carbon:      #0a0604;   /* tabaco casi negro · fondo global */
+  --color-asphalt:     #15100b;   /* asfalto gastado · superficies */
+  --color-graphite:    #261a10;   /* madera quemada · hairlines */
+
+  /* Fuego — naranjas del logo */
+  --color-copper:      #ec6608;   /* llama principal · acento dominante */
+  --color-amber:       #f39200;   /* ámbar logo · highlights */
+  --color-ember:       #ee7203;   /* brasa intermedia */
+
+  /* Madera quemada — browns del logo */
+  --color-copper-deep: #6d300e;   /* madera profunda · sombras */
+  --color-rust:        #8a4913;   /* madera media · acentos secundarios */
+
+  /* Latón / oro mate */
+  --color-gold-mat:    #fdc75f;   /* miel logo · foil cálido */
+
+  /* Verdes andinos del logo (acentos puntuales · etiquetas, sellos) */
+  --color-moss:        #006633;   /* verde profundo */
+  --color-leaf:        #3aaa35;   /* verde lúpulo */
+  --color-acid:        #c8d400;   /* lima ácido · punk highlight */
+  --color-chartreuse:  #dce169;   /* chartreuse logo */
+
+  /* Tipografía sobre oscuro */
+  --color-bone:        #f3ebd9;   /* hueso cálido · texto primario */
+  --color-ash:         #a39181;   /* ceniza cálida · texto secundario */
 }
 
 @layer base {
@@ -26,20 +46,24 @@
     color: var(--color-bone);
   }
 
-  /* Editorial baseline: tight tracking on all-caps eyebrows */
+  body {
+    background-color: var(--color-carbon);
+  }
+
+  /* Selección — hard cut, sin transparencias suaves */
   ::-moz-selection { background: var(--color-copper); color: var(--color-carbon); }
   ::selection      { background: var(--color-copper); color: var(--color-carbon); }
 }
 
-/* ─── Custom scrollbar in burnt copper ──────────────────────────── */
-::-webkit-scrollbar           { width: 6px; }
+/* ─── Scrollbar — bloque sólido, cero radio ────────────────────── */
+::-webkit-scrollbar           { width: 8px; }
 ::-webkit-scrollbar-track     { background: var(--color-carbon); }
 ::-webkit-scrollbar-thumb     { background: var(--color-copper-deep); border-radius: 0; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-copper); }
 
-/* ─── Editorial micro-rules ─────────────────────────────────────── */
-.rule-h { height: 1px; background: linear-gradient(to right, transparent, rgb(184 115 51 / 0.4), transparent); }
-.rule-v { width: 1px; background: linear-gradient(to bottom, transparent, rgb(184 115 51 / 0.4), transparent); }
+/* ─── Hairlines crudas — sin gradientes que se desvanecen ─────── */
+.rule-h { height: 1px; background: rgb(236 102 8 / 0.55); }
+.rule-v { width: 1px;  background: rgb(236 102 8 / 0.55); }
 
 /* Marquee ticker animation for editorial bands */
 @keyframes ticker {

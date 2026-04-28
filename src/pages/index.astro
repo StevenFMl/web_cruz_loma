@@ -36,18 +36,18 @@ const tickerLoop = [...tickerWords, ...tickerWords];
       <HeroSection client:load />
     </article>
 
-    {/* Editorial ticker — slab type bleeding across the page */}
+    {/* Ticker tipo cinta industrial — bandas duras arriba/abajo */}
     <section
       aria-hidden="true"
-      class="relative overflow-hidden border-y border-graphite/60 bg-asphalt/40 py-6 md:py-10"
+      class="relative overflow-hidden border-y-2 border-copper bg-asphalt py-5 md:py-10"
     >
       <div class="flex w-max animate-ticker whitespace-nowrap">
         {tickerLoop.map((w) => (
-          <span class="flex items-center gap-10 pr-10">
-            <span class="font-slab text-5xl md:text-7xl lg:text-8xl text-bone/15 uppercase tracking-tight">
+          <span class="flex items-center gap-6 sm:gap-10 pr-6 sm:pr-10">
+            <span class="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-bone/15 uppercase tracking-tight">
               {w}
             </span>
-            <span class="text-copper text-2xl md:text-4xl">✦</span>
+            <span class="text-copper text-xl sm:text-2xl md:text-4xl">✦</span>
           </span>
         ))}
       </div>
@@ -63,11 +63,11 @@ const tickerLoop = [...tickerWords, ...tickerWords];
     <aside class="relative bg-carbon py-24 md:py-40 overflow-hidden border-t border-graphite/60">
       <div class="px-6 md:px-12 lg:px-20 max-w-[110rem] mx-auto">
         <p class="editorial-eyebrow mb-6">— Editorial · Nº 01</p>
-        <blockquote class="font-editorial italic text-bone/90 text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight max-w-5xl">
-          "No fabricamos cerveza. <span class="text-copper not-italic">Destilamos</span> el carácter de una montaña en un vaso."
+        <blockquote class="font-display text-bone text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.92] tracking-tight max-w-5xl uppercase break-words">
+          "No fabricamos cerveza. <span class="text-copper">Destilamos</span> el carácter de una montaña en un vaso."
         </blockquote>
         <div class="mt-12 flex items-center gap-6">
-          <span class="h-px w-16 bg-copper"></span>
+          <span class="h-[2px] w-16 bg-copper"></span>
           <span class="font-mono text-xs tracking-[0.4em] uppercase text-ash">
             Maestro Cervecero · Cruz Loma
           </span>
