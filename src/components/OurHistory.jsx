@@ -28,7 +28,7 @@ export default function OurHistory() {
             Capítulo · I
           </span>
           <span className="flex-1 h-px bg-[#3a2b1f]" />
-          <span className="font-condensed text-xs tracking-[0.4em] uppercase text-[#8a7a5e] font-bold">
+          <span className="font-gotham text-xs tracking-[0.4em] uppercase text-[#8a7a5e] font-bold">
             Las Raíces
           </span>
         </motion.div>
@@ -43,15 +43,15 @@ export default function OurHistory() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1.3, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="font-display text-5xl md:text-6xl lg:text-7xl text-[#ede0c4] leading-[1] mb-12">
+            <h3 className="font-ganache text-5xl md:text-6xl lg:text-7xl text-[#ede0c4] leading-[1] mb-12">
               Artesanía<br />
               <span className="text-[#c8782a]">en cada gota.</span>
             </h3>
 
-            <div className="space-y-8 text-[15px] md:text-base text-[#b8a786] leading-[1.85] max-w-xl prose-rustic">
-              {/* Drop cap slab */}
+            <div className="font-source space-y-8 text-[15.5px] md:text-base text-[#b8a786] leading-[1.85] max-w-xl prose-rustic">
+              {/* Drop cap Ganache */}
               <p>
-                <span className="float-left font-display text-7xl leading-[0.8] text-[#c8782a] mr-3 mt-1">
+                <span className="float-left font-ganache text-7xl leading-[0.8] text-[#c8782a] mr-3 mt-1">
                   I
                 </span>
                 nspirados por la majestuosidad de los Andes y la pureza del agua que desciende de sus cumbres, empezamos con una idea simple: elaborar una cerveza sincera, sin atajos comerciales.
@@ -70,7 +70,7 @@ export default function OurHistory() {
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 1.2 }}
             >
-              <p className="font-slab italic text-2xl md:text-[1.75rem] text-[#ede0c4] leading-[1.35]">
+              <p className="font-source italic text-2xl md:text-[1.75rem] text-[#ede0c4] leading-[1.35]">
                 "El tiempo es nuestro ingrediente menos visible — y el más importante."
               </p>
               <footer className="mt-5 font-mono text-[10px] tracking-[0.4em] uppercase text-[#c8782a] font-bold">
@@ -106,7 +106,7 @@ export default function OurHistory() {
               {/* Caption mono */}
               <div className="mt-5 flex items-start gap-3">
                 <span className="text-[#c8782a] text-base mt-0.5">◆</span>
-                <p className="font-mono text-[10.5px] tracking-[0.3em] uppercase text-[#8a7a5e] leading-relaxed">
+                <p className="font-mono text-[10.5px] tracking-[0.3em] uppercase text-[#8a7a5e] leading-relaxed font-bold">
                   Ingredientes seleccionados<br />
                   Mitad del Mundo · Quito
                 </p>
@@ -121,8 +121,8 @@ export default function OurHistory() {
                 transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ rotate: -3, scale: 1.05 }}
               >
-                <span className="font-display text-3xl text-[#1a1410] leading-none">100%</span>
-                <span className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#1a1410] text-center font-bold leading-tight">
+                <span className="font-ganache text-3xl text-[#1a1410] leading-none">100%</span>
+                <span className="font-gotham text-[8.5px] tracking-[0.3em] uppercase text-[#1a1410] text-center font-bold leading-tight">
                   Naturales
                 </span>
               </motion.div>

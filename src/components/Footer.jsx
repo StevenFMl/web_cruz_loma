@@ -37,7 +37,7 @@ export default function Footer() {
           <span className="block font-mono text-[10px] tracking-[0.5em] uppercase text-[#c8782a] font-bold mb-8">
             Cruz Loma · Mitad del Mundo
           </span>
-          <h3 className="font-display text-4xl md:text-6xl lg:text-7xl text-[#ede0c4] leading-[1] max-w-3xl mx-auto">
+          <h3 className="font-ganache text-4xl md:text-6xl lg:text-7xl text-[#ede0c4] leading-[1] max-w-3xl mx-auto">
             Cerveza honesta,<br />
             <span className="text-[#c8782a]">elaborada con tiempo.</span>
           </h3>
@@ -54,20 +54,20 @@ export default function Footer() {
 
           {/* Marca */}
           <motion.div variants={itemVariants} className="md:col-span-4 flex flex-col">
-            <h2 className="font-display text-3xl md:text-4xl text-[#ede0c4] leading-[1.05] mb-2">
+            <h2 className="font-ganache text-3xl md:text-4xl text-[#ede0c4] leading-[1.05] mb-2">
               Cruz Loma
             </h2>
             <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-[#c8782a] font-bold mb-6">
               Cervecería Artesanal
             </span>
-            <p className="text-[13.5px] leading-[1.8] text-[#b8a786] max-w-sm">
+            <p className="font-source text-[14px] leading-[1.8] text-[#b8a786] max-w-sm">
               Elaborada con pasión en la Mitad del Mundo. Maltas seleccionadas, lúpulo fresco y la pureza del agua andina.
             </p>
           </motion.div>
 
           {/* Contacto */}
           <motion.div variants={itemVariants} className="md:col-span-3 flex flex-col">
-            <h4 className="font-condensed text-xs tracking-[0.4em] uppercase text-[#c8782a] font-bold mb-8">
+            <h4 className="font-gotham text-xs tracking-[0.4em] uppercase text-[#c8782a] font-bold mb-8">
               Contacto
             </h4>
             <ul className="space-y-5 text-[13.5px] text-[#b8a786] leading-[1.7]">
@@ -92,7 +92,7 @@ export default function Footer() {
 
           {/* Síguenos */}
           <motion.div variants={itemVariants} className="md:col-span-2 flex flex-col">
-            <h4 className="font-condensed text-xs tracking-[0.4em] uppercase text-[#c8782a] font-bold mb-8">
+            <h4 className="font-gotham text-xs tracking-[0.4em] uppercase text-[#c8782a] font-bold mb-8">
               Síguenos
             </h4>
             <ul className="space-y-4">
@@ -112,7 +112,7 @@ export default function Footer() {
 
           {/* Mapa */}
           <motion.div variants={itemVariants} className="md:col-span-3 flex flex-col">
-            <h4 className="font-condensed text-xs tracking-[0.4em] uppercase text-[#c8782a] font-bold mb-8">
+            <h4 className="font-gotham text-xs tracking-[0.4em] uppercase text-[#c8782a] font-bold mb-8">
               Ubicación
             </h4>
             <div className="relative w-full h-56 overflow-hidden border-2 border-[#3a2b1f] group">

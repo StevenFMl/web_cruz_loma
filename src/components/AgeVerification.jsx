@@ -69,27 +69,27 @@ export default function AgeVerification() {
             {/* Hairline */}
             <span className="block w-12 h-px bg-[#c8782a]/60 mb-8" />
 
-            {/* Pregunta — slab serif con peso */}
-            <h2 className="font-slab text-2xl sm:text-3xl text-[#ede0c4] leading-[1.2] mb-4">
+            {/* Pregunta — Ganache display + Source body */}
+            <h2 className="font-ganache text-3xl sm:text-4xl text-[#ede0c4] leading-[1.05] mb-4">
               ¿Tienes la edad legal para
               <span className="block text-[#c8782a] mt-1">consumir alcohol?</span>
             </h2>
 
-            <p className="text-[13.5px] text-[#b8a786] leading-relaxed max-w-sm mx-auto mb-12">
+            <p className="font-source text-[14px] italic text-[#b8a786] leading-relaxed max-w-sm mx-auto mb-12">
               Por favor, confirma que cumples con la edad mínima de consumo en tu país de residencia.
             </p>
 
-            {/* Botones */}
+            {/* Botones — Gotham Bold */}
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <button
                 onClick={handleYes}
-                className="group relative px-10 py-4 font-condensed text-xs tracking-[0.35em] text-[#1a1410] uppercase font-bold bg-[#c8782a] hover:bg-[#ede0c4] border-2 border-[#823914] hover:border-[#5a280f] transition-all duration-700 overflow-hidden"
+                className="group relative px-10 py-4 font-gotham text-xs tracking-[0.35em] text-[#1a1410] uppercase font-bold bg-[#c8782a] hover:bg-[#ede0c4] border-2 border-[#823914] hover:border-[#5a280f] transition-all duration-700 overflow-hidden"
               >
                 <span className="relative z-10">Sí, soy mayor</span>
               </button>
               <button
                 onClick={handleNo}
-                className="px-10 py-4 font-condensed text-xs tracking-[0.35em] uppercase font-bold border-2 border-[#3a2b1f] text-[#b8a786] hover:text-[#ede0c4] hover:border-[#c8782a]/60 transition-all duration-700"
+                className="px-10 py-4 font-gotham text-xs tracking-[0.35em] uppercase font-bold border-2 border-[#3a2b1f] text-[#b8a786] hover:text-[#ede0c4] hover:border-[#c8782a]/60 transition-all duration-700"
               >
                 No, salir
               </button>

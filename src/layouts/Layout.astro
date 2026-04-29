@@ -19,24 +19,77 @@ const { title, description = "Cruz Loma — Cervecería artesanal de la Mitad de
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Tipografía Brewery / Rustic-Elegant:
-         — Alfa Slab One: titular monumental tipo "letrero de cervecería"
-         — Zilla Slab: slab serif general (h2/h3, énfasis), peso visual sólido
-         — Barlow Condensed: condensed sans para etiquetas/UI estilo barril
-         — Barlow: cuerpo de texto cómodo
-         — Space Mono: datos técnicos (ABV, IBU, lote, OG) — voz del maestro cervecero
+    <!--
+      SISTEMA TIPOGRÁFICO OFICIAL CRUZ LOMA
+      ─────────────────────────────────────
+      • GANACHE          — Titulares principales (display, nombres de cervezas).
+                           Fuente comercial con licencia. Si está disponible localmente
+                           (ver public/fonts/ganache.woff2), se usa primero.
+                           Fallback open-source: Alfa Slab One (slab impacto).
+
+      • GOTHAM BOLD      — Énfasis, navegación, botones, etiquetas.
+                           Fuente comercial con licencia.
+                           Fallback open-source: Montserrat 700/800.
+
+      • SOURCE SERIF     — Cuerpo de texto, narrativa, descripciones.
+                           Variable Font open-source vía Google Fonts.
+
+      • SPACE MONO       — Datos técnicos de laboratorio cervecero (ABV, IBU, OG).
     -->
+
+    <!-- Fallbacks open-source vía Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Zilla+Slab:wght@500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@500;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..800;1,8..60,300..700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
+    <!--
+      Carga local condicional para fuentes comerciales licenciadas.
+      Coloca los archivos en /public/fonts/ y se cargarán automáticamente.
+      Si no existen, el navegador hace fallback transparente a Google Fonts.
+      `is:inline` evita que Vite intente resolver las URLs en build time.
+    -->
+    <style is:inline>
+      /* GANACHE — drop-in si /public/fonts/Ganache.woff2 existe */
+      @font-face {
+        font-family: 'Ganache';
+        src: local('Ganache'),
+             url('/fonts/Ganache.woff2') format('woff2'),
+             url('/fonts/Ganache.woff')  format('woff');
+        font-weight: 400 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* GOTHAM BOLD — drop-in si /public/fonts/Gotham-Bold.woff2 existe */
+      @font-face {
+        font-family: 'Gotham';
+        src: local('Gotham Bold'), local('Gotham-Bold'),
+             url('/fonts/Gotham-Bold.woff2') format('woff2'),
+             url('/fonts/Gotham-Bold.woff')  format('woff');
+        font-weight: 700 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* SOURCE SERIF VARIABLE — drop-in del archivo variable */
+      @font-face {
+        font-family: 'Source Serif Variable';
+        src: local('Source Serif Variable'),
+             url('/fonts/SourceSerif4-VariableFont.ttf') format('truetype-variations'),
+             url('/fonts/SourceSerif4-Variable.woff2')   format('woff2-variations');
+        font-weight: 200 900;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
 
     <title>{title}</title>
   </head>
   <body
-    class="bg-[#1a1410] font-sans text-[#d4c5a8] antialiased overflow-x-hidden"
+    class="font-source bg-[#1a1410] text-[#d4c5a8] antialiased overflow-x-hidden"
   >
     <slot />
   </body>
@@ -44,54 +97,70 @@ const { title, description = "Cruz Loma — Cervecería artesanal de la Mitad de
 
 <style is:global>
   /* =================================================================
-     FAMILIAS — slab brewery + condensed labels + technical mono
+     VARIABLES TIPOGRÁFICAS — encadenadas con fallbacks
      ================================================================= */
   :root {
-    --font-display: "Alfa Slab One", "Zilla Slab", Georgia, serif;
-    --font-slab: "Zilla Slab", "Roboto Slab", Georgia, serif;
-    --font-condensed: "Barlow Condensed", "Oswald", "Impact", sans-serif;
-    --font-sans: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --font-mono: "Space Mono", "IBM Plex Mono", ui-monospace, monospace;
+    /* Display: nombres de cervezas, titulares imponentes */
+    --font-display: "Ganache", "Alfa Slab One", "Bowlby One", Georgia, serif;
+
+    /* Énfasis: CTAs, etiquetas, navegación */
+    --font-emphasis: "Gotham", "Gotham Bold", "Montserrat", system-ui, sans-serif;
+
+    /* Cuerpo: descripciones y narrativa */
+    --font-body: "Source Serif Variable", "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+
+    /* Mono — sellos de laboratorio cervecero */
+    --font-mono: "Space Mono", "IBM Plex Mono", ui-monospace, "Courier New", monospace;
   }
 
   body {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-weight: 400;
   }
 
-  /* Display monumental — el "letrero del barril" */
+  /* =================================================================
+     CLASES UTILITARIAS — nombre semántico = nombre de fuente oficial
+     ================================================================= */
+
+  /* GANACHE — display */
+  .font-ganache,
   .font-display {
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.005em;
   }
 
-  /* Slab — para titulares secundarios, énfasis con cuerpo */
-  .font-slab {
-    font-family: var(--font-slab);
-    font-weight: 700;
-  }
-  .font-slab-bold {
-    font-family: var(--font-slab);
-    font-weight: 800;
-  }
-
-  /* Condensed — etiquetas, UI, eyebrows */
+  /* GOTHAM BOLD — UI / emphasis */
+  .font-gotham,
+  .font-emphasis,
   .font-condensed {
-    font-family: var(--font-condensed);
-    font-weight: 600;
+    font-family: var(--font-emphasis);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .font-gotham-black {
+    font-family: var(--font-emphasis);
+    font-weight: 900;
   }
 
-  /* Mono — datos técnicos */
-  .font-mono {
+  /* SOURCE SERIF — body */
+  .font-source,
+  .font-body {
+    font-family: var(--font-body);
+    font-weight: 400;
+  }
+
+  /* SPACE MONO — datos técnicos */
+  .font-mono,
+  .font-tech {
     font-family: var(--font-mono);
   }
 
-  /* Aliases retrocompatibles — apuntan al nuevo lenguaje */
-  .font-vintage  { font-family: var(--font-slab); font-weight: 700; }
-  .font-ganache  { font-family: var(--font-slab); font-weight: 700; }
-  .font-gotham   { font-family: var(--font-condensed); font-weight: 700; }
-  .font-source   { font-family: var(--font-sans); }
-  .font-script   { font-family: var(--font-slab); font-weight: 700; font-style: italic; }
-  .font-display-italic { font-family: var(--font-slab); font-weight: 700; font-style: italic; }
+  /* Aliases retrocompatibles */
+  .font-vintage         { font-family: var(--font-display); font-weight: 400; }
+  .font-slab            { font-family: var(--font-display); font-weight: 400; }
+  .font-slab-bold       { font-family: var(--font-display); font-weight: 400; }
+  .font-script          { font-family: var(--font-display); font-weight: 400; font-style: italic; }
+  .font-display-italic  { font-family: var(--font-body); font-weight: 500; font-style: italic; }
+  .font-sans            { font-family: var(--font-emphasis); font-weight: 600; }
 </style>

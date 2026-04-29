@@ -81,7 +81,7 @@ export default function CraftProcess() {
           transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-6 mb-20 md:mb-28"
         >
-          <span className="font-condensed text-xs tracking-[0.4em] uppercase text-[#8a7a5e] font-bold">
+          <span className="font-gotham text-xs tracking-[0.4em] uppercase text-[#8a7a5e] font-bold">
             Transmisión de Sabor
           </span>
           <span className="flex-1 h-px bg-[#3a2b1f]" />
@@ -90,19 +90,19 @@ export default function CraftProcess() {
           </span>
         </motion.div>
 
-        {/* Titular editorial */}
+        {/* Titular — alineado izquierda asimétrico */}
         <motion.div
-          className="mb-24 md:mb-32 max-w-3xl"
+          className="mb-24 md:mb-32 max-w-3xl lg:ml-8"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-[#ede0c4] leading-[0.95]">
+          <h2 className="font-ganache text-5xl md:text-7xl lg:text-8xl text-[#ede0c4] leading-[0.95]">
             El proceso<br />
             <span className="text-[#c8782a]">tras la botella.</span>
           </h2>
-          <p className="mt-10 text-[15px] md:text-base text-[#b8a786] leading-[1.85] max-w-xl">
+          <p className="font-source mt-10 text-[15.5px] md:text-base italic text-[#b8a786] leading-[1.85] max-w-xl">
             Cuatro elementos. Un solo método. Aquí no hay aceleradores ni atajos: hay tiempo, oficio y respeto por la materia prima.
           </p>
         </motion.div>
@@ -127,8 +127,8 @@ export default function CraftProcess() {
                 index % 2 === 0 ? 'md:border-r lg:border-r' : ''
               } md:border-[#3a2b1f]`}
             >
-              {/* Número grande slab */}
-              <span className="font-display text-7xl lg:text-8xl text-[#c8782a]/30 leading-none mb-8 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-[#c8782a] group-hover:-translate-y-1">
+              {/* Número grande Ganache */}
+              <span className="font-ganache text-7xl lg:text-8xl text-[#c8782a]/30 leading-none mb-8 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-[#c8782a] group-hover:-translate-y-1">
                 {step.number}
               </span>
 
@@ -140,11 +140,11 @@ export default function CraftProcess() {
                 {step.icon}
               </span>
 
-              <h4 className="font-slab-bold text-[1.65rem] text-[#ede0c4] leading-[1.1] mb-4">
+              <h4 className="font-ganache text-[1.85rem] text-[#ede0c4] leading-[1.05] mb-4">
                 {step.title}
               </h4>
 
-              <p className="text-[14px] text-[#b8a786] leading-[1.75]">
+              <p className="font-source text-[14.5px] text-[#b8a786] leading-[1.8]">
                 {step.desc}
               </p>
             </motion.div>
@@ -159,7 +159,7 @@ export default function CraftProcess() {
           viewport={{ once: true }}
           transition={{ duration: 1.3, delay: 0.3 }}
         >
-          <p className="font-slab italic text-2xl md:text-3xl text-[#ede0c4]/85 max-w-xl leading-[1.4]">
+          <p className="font-source italic text-2xl md:text-3xl text-[#ede0c4]/85 max-w-xl leading-[1.4]">
             "La cerveza honesta no se acelera: se espera."
           </p>
           <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-[#c8782a] font-bold whitespace-nowrap">
