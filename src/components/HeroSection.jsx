@@ -3,145 +3,130 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <section className="relative flex flex-col justify-center items-center w-full min-h-screen overflow-hidden bg-[#1a1512]">
+    <section className="relative w-full min-h-screen overflow-hidden bg-wood">
 
-      {/* Fondo cinematográfico */}
+      {/* Imagen + capas atmosféricas */}
       <motion.div
         className="absolute inset-0 z-0"
-        initial={{ scale: 1.08, opacity: 0 }}
+        initial={{ scale: 1.06, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
         style={{ willChange: "transform, opacity" }}
       >
-        {/* Capas de profundidad */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0807]/70 via-[#1a1512]/60 to-[#1a1512] z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1512]/40 via-transparent to-[#1a1512]/40 z-10" />
-
-        {/* Halo cálido pulsante (sutil) */}
-        <motion.div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140vw] max-w-[1100px] h-[700px] z-10 rounded-full pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(196,137,43,0.16) 0%, rgba(196,137,43,0) 65%)',
-            willChange: "opacity"
-          }}
-          animate={{ opacity: [0.5, 0.85, 0.5] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-
         <img
           src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a?q=80&w=2070&auto=format&fit=crop"
           alt=""
           aria-hidden="true"
-          className="object-cover w-full h-full opacity-35 mix-blend-luminosity sepia-[0.4]"
+          className="object-cover w-full h-full opacity-30 mix-blend-luminosity sepia-[0.5] saturate-[0.85]"
+        />
+        {/* Doble gradiente: oscuro abajo, cálido arriba */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1410]/60 via-[#1a1410]/85 to-[#0a0604]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1410]/40 via-transparent to-[#1a1410]/40" />
+
+        {/* Halo ámbar pulsante — lento, respirado */}
+        <motion.div
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] max-w-[1200px] h-[800px] rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(200,120,42,0.18) 0%, rgba(168,82,30,0) 65%)',
+            willChange: "opacity"
+          }}
+          animate={{ opacity: [0.45, 0.85, 0.45] }}
+          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.div>
 
-      {/* Marco de página minimalista (lateral) */}
-      <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-8 z-20 origin-left -rotate-90">
-        <span className="text-[10px] tracking-[0.6em] uppercase text-[#a89b85]/50 font-medium">
-          Est. — Mitad del Mundo
-        </span>
-      </div>
-      <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-8 z-20 origin-right rotate-90">
-        <span className="text-[10px] tracking-[0.6em] uppercase text-[#a89b85]/50 font-medium">
-          Edición Artesanal
-        </span>
-      </div>
+      {/* Contenido — grid vertical 3 zonas: top / centro / bottom */}
+      <div className="relative z-20 grid grid-rows-[auto_1fr_auto] min-h-screen">
 
-      {/* Contenido principal */}
-      <div className="relative z-20 flex flex-col items-center text-center px-6 w-full max-w-6xl mx-auto pt-32 pb-24">
+        {/* ZONA TOP — metadata cervecera (espacio reservado para Navbar) */}
+        <div className="pt-40 sm:pt-44 md:pt-36" />
 
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center gap-5 mb-10"
-        >
-          <span className="w-12 h-px bg-[#c4892b]/60" />
-          <span className="text-[10px] sm:text-[11px] tracking-[0.5em] uppercase font-semibold text-[#e0a85a]">
-            100% Ecuatoriana
-          </span>
-          <span className="w-12 h-px bg-[#c4892b]/60" />
-        </motion.div>
+        {/* ZONA CENTRO — titular monumental + CTA, todo respira */}
+        <div className="flex flex-col items-center justify-center text-center px-6 max-w-6xl mx-auto w-full">
 
-        {/* Titular display imponente */}
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-[#f1e8d6] tracking-tight leading-[0.95] mb-2"
-          style={{ willChange: "transform, opacity" }}
-        >
-          <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-light">
-            Cerveza
-          </span>
-          <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-display-italic text-[#e0a85a] -mt-2 lg:-mt-4">
-            artesanal
-          </span>
-        </motion.h1>
-
-        {/* Subtítulo */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6 }}
-          className="mt-12 text-xs sm:text-sm md:text-base text-[#a89b85] tracking-[0.4em] uppercase font-light max-w-xl"
-        >
-          El sabor de la mitad del mundo
-        </motion.p>
-
-        {/* Hairline */}
-        <motion.span
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="block w-24 h-px bg-[#c4892b]/40 mt-12 mb-12 origin-center"
-        />
-
-        {/* CTA — sin gradientes, tipográfico, refinado */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <a
-            href="#cervezas"
-            className="group relative inline-flex items-center gap-5 pl-10 pr-7 py-5 text-[11px] sm:text-xs font-semibold tracking-[0.4em] text-[#f1e8d6] uppercase border border-[#c4892b]/50 hover:border-[#e0a85a] transition-all duration-700 overflow-hidden"
+          {/* Eyebrow con sello */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-center gap-5 mb-12 md:mb-14"
           >
-            {/* Fondo deslizante en hover */}
-            <span className="absolute inset-0 bg-[#c4892b] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+            <span className="block w-10 h-px bg-[#c8782a]/70" />
+            <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.45em] uppercase text-[#c8782a] font-bold">
+              Est. Mitad del Mundo · Ecuador
+            </span>
+            <span className="block w-10 h-px bg-[#c8782a]/70" />
+          </motion.div>
 
-            <span className="relative z-10 transition-colors duration-500 group-hover:text-[#1a1512]">
-              Explorar variedades
+          {/* Titular monumental — Alfa Slab para impacto de letrero */}
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.4, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-[#ede0c4] leading-[0.92] tracking-tight"
+            style={{ willChange: "transform, opacity" }}
+          >
+            <span className="block text-6xl sm:text-7xl md:text-9xl lg:text-[10rem] xl:text-[11rem]">
+              Cruz Loma
             </span>
-            <span className="relative z-10 flex items-center gap-1 transition-colors duration-500 group-hover:text-[#1a1512]">
-              <span className="block w-8 h-px bg-current transition-all duration-500 group-hover:w-12" />
-              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+            <span className="block font-slab text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#c8782a] mt-6 md:mt-8 tracking-[0.05em] uppercase">
+              Cerveza · Artesanal
             </span>
-          </a>
+          </motion.h1>
+
+          {/* Subtítulo descriptivo */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12 md:mt-14 max-w-md text-sm md:text-base text-[#b8a786] leading-[1.85]"
+          >
+            Maltas tostadas a mano, lúpulo de cosecha y agua andina.<br className="hidden md:block" />
+            Lote a lote, sin atajos.
+          </motion.p>
+
+          {/* CTA — botón sólido tipo barril, sin gradientes Web3 */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12 md:mt-14"
+          >
+            <a
+              href="#cervezas"
+              className="group relative inline-flex items-center gap-4 pl-10 pr-7 py-5 font-condensed text-xs md:text-sm tracking-[0.4em] text-[#1a1410] uppercase bg-[#c8782a] border-2 border-[#823914] hover:bg-[#ede0c4] hover:border-[#5a280f] transition-all duration-700 overflow-hidden shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)]"
+            >
+              <span className="relative z-10 transition-colors duration-700">
+                Conocer las cervezas
+              </span>
+              <span className="relative z-10 flex items-center gap-1.5 transition-all duration-700">
+                <span className="block w-7 h-px bg-current transition-all duration-700 group-hover:w-12" />
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </a>
+          </motion.div>
+        </div>
+
+        {/* ZONA BOTTOM — indicador de scroll (separado, sin tocar el CTA) */}
+        <motion.div
+          className="flex flex-col items-center gap-3 pb-10 md:pb-14 text-[#c8782a]/60"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.6, duration: 1.4 }}
+        >
+          <span className="font-mono text-[9px] tracking-[0.45em] uppercase">
+            Scroll
+          </span>
+          <motion.span
+            className="block w-px h-12 bg-gradient-to-b from-[#c8782a] to-transparent"
+            animate={{ scaleY: [0, 1, 0] }}
+            style={{ transformOrigin: 'top' }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+          />
         </motion.div>
       </div>
-
-      {/* Indicador de scroll */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 text-[#c4892b]/70"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
-      >
-        <span className="text-[9px] uppercase tracking-[0.4em] font-medium hidden sm:block">
-          Descubrir
-        </span>
-        <motion.span
-          className="block w-px h-14 bg-gradient-to-b from-[#c4892b] to-transparent"
-          animate={{ scaleY: [0, 1, 0] }}
-          style={{ transformOrigin: 'top' }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
     </section>
   );
 }

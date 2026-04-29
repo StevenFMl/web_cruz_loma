@@ -31,29 +31,29 @@ export default function AgeVerification() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0c0807]/85 backdrop-blur-md"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0a0604]/90 backdrop-blur-md"
         >
-          {/* Halo cálido tras el panel */}
+          {/* Halo cobre tras el panel */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <div className="w-[600px] h-[600px] rounded-full bg-[#c4892b]/[0.06] blur-[140px]" />
+            <div className="w-[600px] h-[600px] rounded-full bg-[#c8782a]/[0.08] blur-[140px]" />
           </div>
 
           <motion.div
-            initial={{ scale: 0.97, y: 16, opacity: 0 }}
+            initial={{ scale: 0.96, y: 14, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
-            exit={{ scale: 0.98, y: -10, opacity: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-lg flex flex-col items-center text-center px-8 sm:px-14 py-12 sm:py-16 bg-[#1a1512]/90 border border-white/[0.06] rounded-[2px] backdrop-blur-xl shadow-[0_40px_120px_-30px_rgba(0,0,0,0.8)]"
+            exit={{ scale: 0.97, y: -8, opacity: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-lg flex flex-col items-center text-center px-8 sm:px-14 py-12 sm:py-16 bg-kraft border-2 border-[#3a2b1f] rounded-[2px] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.85)]"
           >
-            {/* Esquinas decorativas finísimas */}
-            <span className="absolute top-3 left-3 w-5 h-5 border-t border-l border-[#c4892b]/40" />
-            <span className="absolute top-3 right-3 w-5 h-5 border-t border-r border-[#c4892b]/40" />
-            <span className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-[#c4892b]/40" />
-            <span className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-[#c4892b]/40" />
+            {/* Esquinas decorativas estilo etiqueta */}
+            <span className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-[#c8782a]" />
+            <span className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-[#c8782a]" />
+            <span className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-[#c8782a]" />
+            <span className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-[#c8782a]" />
 
             {/* Logo */}
-            <div className="relative flex justify-center w-full h-28 sm:h-36 md:h-44 mb-4 pointer-events-none">
+            <div className="relative flex justify-center w-full h-28 sm:h-36 md:h-44 mb-6 pointer-events-none">
               <img
                 src="/logo-cruz-loma.svg"
                 alt="Cruz Loma"
@@ -61,43 +61,42 @@ export default function AgeVerification() {
               />
             </div>
 
-            {/* Eyebrow */}
-            <span className="block text-[10px] tracking-[0.5em] uppercase text-[#c4892b] font-medium mb-6">
+            {/* Eyebrow mono */}
+            <span className="block font-mono text-[10px] tracking-[0.45em] uppercase text-[#c8782a] font-bold mb-6">
               Verificación de Edad
             </span>
 
             {/* Hairline */}
-            <span className="block w-12 h-px bg-[#c4892b]/40 mb-8" />
+            <span className="block w-12 h-px bg-[#c8782a]/60 mb-8" />
 
-            {/* Pregunta — display serif, peso ligero, generoso */}
-            <h2 className="font-display text-2xl sm:text-3xl text-[#f1e8d6] leading-snug tracking-tight mb-3">
+            {/* Pregunta — slab serif con peso */}
+            <h2 className="font-slab text-2xl sm:text-3xl text-[#ede0c4] leading-[1.2] mb-4">
               ¿Tienes la edad legal para
-              <span className="font-display-italic text-[#e0a85a]"> consumir alcohol</span>?
+              <span className="block text-[#c8782a] mt-1">consumir alcohol?</span>
             </h2>
 
-            <p className="text-[13px] text-[#a89b85] leading-relaxed tracking-wide max-w-sm mx-auto mb-12">
+            <p className="text-[13.5px] text-[#b8a786] leading-relaxed max-w-sm mx-auto mb-12">
               Por favor, confirma que cumples con la edad mínima de consumo en tu país de residencia.
             </p>
 
-            {/* Botones — tipográficos, sin gradientes */}
+            {/* Botones */}
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <button
                 onClick={handleYes}
-                className="group relative px-10 py-4 text-[11px] font-semibold tracking-[0.3em] text-[#1a1512] uppercase bg-[#e0a85a] hover:bg-[#f1e8d6] border border-[#e0a85a] hover:border-[#f1e8d6] transition-all duration-500 overflow-hidden"
+                className="group relative px-10 py-4 font-condensed text-xs tracking-[0.35em] text-[#1a1410] uppercase font-bold bg-[#c8782a] hover:bg-[#ede0c4] border-2 border-[#823914] hover:border-[#5a280f] transition-all duration-700 overflow-hidden"
               >
                 <span className="relative z-10">Sí, soy mayor</span>
-                <span className="absolute inset-0 bg-[#f1e8d6] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" />
               </button>
               <button
                 onClick={handleNo}
-                className="px-10 py-4 text-[11px] font-semibold tracking-[0.3em] uppercase border border-white/15 text-[#a89b85] hover:text-[#f1e8d6] hover:border-white/30 transition-all duration-500"
+                className="px-10 py-4 font-condensed text-xs tracking-[0.35em] uppercase font-bold border-2 border-[#3a2b1f] text-[#b8a786] hover:text-[#ede0c4] hover:border-[#c8782a]/60 transition-all duration-700"
               >
                 No, salir
               </button>
             </div>
 
-            <div className="mt-12 pt-8 w-full border-t border-white/[0.06]">
-              <p className="text-[9px] text-[#7a6e5b] uppercase tracking-[0.4em] leading-relaxed">
+            <div className="mt-12 pt-8 w-full border-t border-[#3a2b1f]">
+              <p className="font-mono text-[9px] text-[#8a7a5e] uppercase tracking-[0.4em] leading-relaxed">
                 Disfruta con responsabilidad
               </p>
             </div>

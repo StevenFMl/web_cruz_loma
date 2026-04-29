@@ -1,143 +1,266 @@
 @import "tailwindcss";
 
 /* =====================================================================
-   CRUZ LOMA — DESIGN TOKENS
-   Paleta editorial: stout profundo, ámbar refinado, crema cálida.
-   Sin gradientes Web3, sin sombras densas. Todo respira.
+   CRUZ LOMA — RUSTIC ELEGANT BREWERY IDENTITY
+   Paleta: madera quemada, cobre profundo, ámbar de barril, verde bosque,
+   trigo/hueso. Texturas de papel reciclado y veta de roble.
    ===================================================================== */
 @theme {
-  /* Bases (stout / madera oscura) */
-  --color-stout-950: #0c0807;
-  --color-stout-900: #140e0b;
-  --color-stout-800: #1a1512;
-  --color-stout-700: #221c18;
-  --color-stout-600: #2d251f;
-  --color-stout-500: #3a302a;
-  --color-stout-400: #5b4d44;
+  /* Bases — madera oscura, stout */
+  --color-stout-950: #0a0604;
+  --color-stout-900: #120c08;
+  --color-stout-800: #1a1410;
+  --color-stout-700: #231a14;
+  --color-stout-600: #2d2118;
+  --color-stout-500: #3a2b1f;
+  --color-stout-400: #4d382a;
 
-  /* Ámbar refinado — más bronce, menos chillón */
-  --color-amber-glow: #e0a85a;
-  --color-amber-brand: #c4892b;
-  --color-amber-deep: #8a6020;
-  --color-amber-shadow: #5a3e14;
+  /* Cobre y ámbar quemado — brewery */
+  --color-copper-50:  #f4d8a8;
+  --color-copper-100: #e8b873;
+  --color-copper-200: #d99852;
+  --color-copper-300: #c8782a;
+  --color-copper-400: #a8521e;
+  --color-copper-500: #823914;
+  --color-copper-600: #5a280f;
 
-  /* Crema y neutros editoriales */
-  --color-cream-50: #f8f1e3;
-  --color-cream-100: #f1e8d6;
-  --color-cream-200: #d9cdb6;
-  --color-cream-300: #a89b85;
-  --color-cream-400: #7a6e5b;
+  /* Trigo / hueso (reemplaza el "cream" suave) — más sucio, más cálido */
+  --color-wheat-50:  #ede0c4;
+  --color-wheat-100: #d4c5a8;
+  --color-wheat-200: #b8a786;
+  --color-wheat-300: #8a7a5e;
+  --color-wheat-400: #5e503c;
 
-  /* Verde apagado (raíces / botánico) — reemplaza el verde lima brillante */
-  --color-moss: #6b7a5a;
-  --color-moss-dark: #4a5640;
+  /* Verde bosque / lúpulo */
+  --color-forest-100: #748b5a;
+  --color-forest-200: #5c6d4e;
+  --color-forest-300: #3d4a32;
+  --color-forest-400: #2a3322;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #1a1512;
-    color: #f1e8d6;
+    background-color: #1a1410;
+    color: #d4c5a8;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   body {
-    font-feature-settings: "ss01", "ss02", "kern";
-    letter-spacing: 0.01em;
+    font-feature-settings: "kern", "ss01";
   }
 
-  /* Tipografía editorial: párrafos largos respiran */
   p {
-    line-height: 1.75;
+    line-height: 1.7;
   }
 
-  /* Selección sutil */
   ::selection {
-    background: rgba(196, 137, 43, 0.25);
-    color: #f8f1e3;
+    background: rgba(168, 82, 30, 0.4);
+    color: #ede0c4;
   }
 }
 
 /* =====================================================================
-   TEXTURA DE PAPEL/GRANO — ahora más sutil y atmosférica
+   TEXTURAS GLOBALES — papel reciclado + veta de madera oscura
    ===================================================================== */
+
+/* Capa 1: grano de papel reciclado, fija sobre todo el viewport */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.07;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.4 0 0 0 0 0.18 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
 }
 
-/* Viñeta tenue para enmarcar la pantalla */
+/* Capa 2: viñeta orgánica cálida — enmarca la pantalla como pergamino */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 49;
-  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
+  background:
+    radial-gradient(ellipse at 50% 0%,   rgba(200, 120, 42, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse at center,   transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+/* Veta de madera reusable — para secciones específicas */
+.bg-wood {
+  background-color: #1a1410;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(58, 43, 31, 0.0) 0px,
+      rgba(58, 43, 31, 0.18) 1px,
+      rgba(58, 43, 31, 0.0) 2px,
+      rgba(58, 43, 31, 0.0) 14px,
+      rgba(45, 33, 24, 0.22) 15px,
+      rgba(58, 43, 31, 0.0) 17px,
+      rgba(58, 43, 31, 0.0) 31px
+    ),
+    radial-gradient(ellipse at 30% 40%, rgba(90, 40, 15, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 70%, rgba(35, 26, 20, 0.3) 0%, transparent 55%);
+}
+
+/* Papel reciclado / kraft — alternativa para paneles tipo etiqueta */
+.bg-kraft {
+  background-color: #231a14;
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(168, 82, 30, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 75% 70%, rgba(168, 82, 30, 0.05) 0%, transparent 45%),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(58, 43, 31, 0.08) 3px,
+      rgba(58, 43, 31, 0.08) 4px
+    );
+}
+
+/* Etiqueta de cervecería — fondo color hueso envejecido */
+.bg-label {
+  background-color: #ede0c4;
+  background-image:
+    radial-gradient(ellipse at 30% 40%, rgba(90, 40, 15, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 70%, rgba(40, 25, 12, 0.08) 0%, transparent 60%);
 }
 
 /* =====================================================================
-   SCROLLBAR — finísimo, casi invisible
-   ===================================================================== */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #140e0b;
-}
-::-webkit-scrollbar-thumb {
-  background: #2d251f;
-  border-radius: 999px;
-  transition: background 0.3s;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #c4892b;
-}
-
-/* =====================================================================
-   UTILIDADES EDITORIALES
+   DIVISORES ORGÁNICOS — no son hairlines: son transiciones de tono
    ===================================================================== */
 
-/* Eyebrow — pequeñas etiquetas todo en mayúscula, tracking generoso */
-.eyebrow {
-  font-size: 0.6875rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #c4892b;
-}
-
-/* Hairline divider */
-.hairline {
+/* Divisor de sección — capa cálida que sangra entre secciones */
+.divider-burnt {
+  position: relative;
   height: 1px;
   background: linear-gradient(
     90deg,
-    transparent,
-    rgba(196, 137, 43, 0.4),
-    transparent
+    transparent 0%,
+    rgba(90, 40, 15, 0.4) 20%,
+    rgba(168, 82, 30, 0.6) 50%,
+    rgba(90, 40, 15, 0.4) 80%,
+    transparent 100%
   );
 }
-
-/* Foco accesible para teclado */
-:focus-visible {
-  outline: 1px solid rgba(196, 137, 43, 0.6);
-  outline-offset: 4px;
-  border-radius: 2px;
+.divider-burnt::before {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #c8782a;
+  background: #1a1410;
+  padding: 0 16px;
+  font-size: 12px;
+  letter-spacing: 0;
 }
 
-/* Texto de párrafo editorial — equilibra ancho de columna */
-.prose-editorial p {
+/* Borde superior de sección — degradado orgánico (no línea recta plana) */
+.section-edge-top {
+  position: relative;
+}
+.section-edge-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 6, 4, 0.7) 0%,
+    rgba(10, 6, 4, 0.0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =====================================================================
+   SCROLLBAR — cobre quemado
+   ===================================================================== */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #120c08;
+}
+::-webkit-scrollbar-thumb {
+  background: #4d382a;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c8782a;
+}
+
+/* =====================================================================
+   UTILIDADES TIPOGRÁFICAS
+   ===================================================================== */
+
+/* Eyebrow — etiqueta tipográfica, peso medio, tracking generoso */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #c8782a;
+}
+
+/* Texto técnico — datos del cervecero (ABV, IBU, OG) */
+.tech-data {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum";
+  letter-spacing: 0.05em;
+}
+
+/* Foco accesible */
+:focus-visible {
+  outline: 2px solid rgba(200, 120, 42, 0.7);
+  outline-offset: 3px;
+}
+
+/* Texto de párrafo editorial */
+.prose-rustic p {
   text-wrap: pretty;
   hyphens: auto;
+}
+
+/* Sello / stamp — efecto envejecido */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  border: 1.5px solid currentColor;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transform: rotate(-1deg);
+  position: relative;
+}
+
+/* Línea ornamental con punto central — alternativa a hairline */
+.divider-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: #c8782a;
+}
+.divider-mark::before,
+.divider-mark::after {
+  content: "";
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
 }
