@@ -1,16 +1,68 @@
 @import "tailwindcss";
 
+/* =====================================================================
+   CRUZ LOMA — DESIGN TOKENS
+   Paleta editorial: stout profundo, ámbar refinado, crema cálida.
+   Sin gradientes Web3, sin sombras densas. Todo respira.
+   ===================================================================== */
+@theme {
+  /* Bases (stout / madera oscura) */
+  --color-stout-950: #0c0807;
+  --color-stout-900: #140e0b;
+  --color-stout-800: #1a1512;
+  --color-stout-700: #221c18;
+  --color-stout-600: #2d251f;
+  --color-stout-500: #3a302a;
+  --color-stout-400: #5b4d44;
+
+  /* Ámbar refinado — más bronce, menos chillón */
+  --color-amber-glow: #e0a85a;
+  --color-amber-brand: #c4892b;
+  --color-amber-deep: #8a6020;
+  --color-amber-shadow: #5a3e14;
+
+  /* Crema y neutros editoriales */
+  --color-cream-50: #f8f1e3;
+  --color-cream-100: #f1e8d6;
+  --color-cream-200: #d9cdb6;
+  --color-cream-300: #a89b85;
+  --color-cream-400: #7a6e5b;
+
+  /* Verde apagado (raíces / botánico) — reemplaza el verde lima brillante */
+  --color-moss: #6b7a5a;
+  --color-moss-dark: #4a5640;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Rich, warm dark brown background reminiscent of dark wood/stout beer */
     background-color: #1a1512;
-    color: #f3f4f6;
-    /* Gray-100 */
+    color: #f1e8d6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-feature-settings: "ss01", "ss02", "kern";
+    letter-spacing: 0.01em;
+  }
+
+  /* Tipografía editorial: párrafos largos respiran */
+  p {
+    line-height: 1.75;
+  }
+
+  /* Selección sutil */
+  ::selection {
+    background: rgba(196, 137, 43, 0.25);
+    color: #f8f1e3;
   }
 }
 
-/* Subtle Wood/Paper Texture Overlay to enhance rustic feel */
+/* =====================================================================
+   TEXTURA DE PAPEL/GRANO — ahora más sutil y atmosférica
+   ===================================================================== */
 body::before {
   content: "";
   position: fixed;
@@ -20,26 +72,72 @@ body::before {
   height: 100vh;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.15;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
 }
 
-/* Custom Scrollbar */
+/* Viñeta tenue para enmarcar la pantalla */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 49;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+/* =====================================================================
+   SCROLLBAR — finísimo, casi invisible
+   ===================================================================== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #1a1512;
+  background: #140e0b;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #453327;
-  border-radius: 4px;
+  background: #2d251f;
+  border-radius: 999px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c4892b;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #d97706;
-  /* Amber 600 */
+/* =====================================================================
+   UTILIDADES EDITORIALES
+   ===================================================================== */
+
+/* Eyebrow — pequeñas etiquetas todo en mayúscula, tracking generoso */
+.eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #c4892b;
+}
+
+/* Hairline divider */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 137, 43, 0.4),
+    transparent
+  );
+}
+
+/* Foco accesible para teclado */
+:focus-visible {
+  outline: 1px solid rgba(196, 137, 43, 0.6);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Texto de párrafo editorial — equilibra ancho de columna */
+.prose-editorial p {
+  text-wrap: pretty;
+  hyphens: auto;
 }

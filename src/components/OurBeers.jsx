@@ -5,195 +5,202 @@ const beers = [
   {
     name: "Pale Ale",
     style: "Pale Ale",
-    abv: "5,5%",
-    desc: "Cerveza rubia, ligera, de carácter maltoso dulce, con presencia del lúpulo en el que tendrá básicamente carácteres frutales.",
-    color: "from-yellow-600/20 to-[#1a1512]",
-    accent: "text-yellow-500",
+    abv: "5.5",
+    desc: "Cerveza rubia, ligera, de carácter maltoso dulce, con presencia del lúpulo en notas frutales.",
+    accent: "#e0c46a",
     image: "https://images.unsplash.com/photo-1657223253573-05b63bc33bf3?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-yellow-600/30 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-yellow-600/50"
   },
   {
     name: "Irish Red Ale",
     style: "Red Ale",
-    abv: "6%",
-    desc: "Es una cerveza de color ámbar-rojizo, transparente y con una espuma blanquecina a color canela de retención media. Su sabor es bastante neutral pero inclinado hacia las maltas, contiene notas a caramelo. El aroma es dulce a grano o caramelo tostado y con muy baja presencia de lúpulo que de existir le otorga notas florales.",
-    color: "from-red-800/20 to-[#1a1512]",
-    accent: "text-red-600",
+    abv: "6.0",
+    desc: "Color ámbar-rojizo, transparente, espuma canela. Notas a caramelo y grano tostado, con un final ligeramente floral.",
+    accent: "#c75d3a",
     image: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-red-800/30 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-red-800/50"
   },
   {
     name: "Sweet Stout",
     style: "Stout",
-    abv: "8,9%",
-    desc: "Cerveza oscura debido a los ingredientes que se usan en su elaboración: ya sea cebada tostada o maltas chocolate, oscuras o especiales. El aroma también es tostado, similar al café o al chocolate.",
-    color: "from-[#453327]/30 to-[#1a1512]",
-    accent: "text-[#d6d3d1]",
+    abv: "8.9",
+    desc: "Cerveza oscura, cuerpo cremoso, aromas tostados a café y chocolate amargo. Profunda, sedosa, contundente.",
+    accent: "#a89b85",
     image: "https://images.unsplash.com/photo-1588686948574-d2e7d70362da?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-[#453327]/50 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-[#78716c]/50"
   },
   {
-    name: "Black IPA Night Forest",
-    style: "Black IPA",
-    abv: "7,8%",
-    desc: "Cerveza oscura compleja, equilibrada que combina la amargura y aroma de las IPA, con notas de café, chocolate y frutas.",
-    color: "from-zinc-800/30 to-[#1a1512]",
-    accent: "text-zinc-400",
+    name: "Black IPA",
+    style: "Night Forest",
+    abv: "7.8",
+    desc: "Compleja y equilibrada: la amargura aromática de las IPA con notas de café, chocolate y frutas oscuras.",
+    accent: "#7a8b8a",
     image: "https://images.unsplash.com/photo-1588686948574-d2e7d70362da?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-zinc-800/40 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-zinc-700/50"
   },
   {
     name: "Weissbier",
     style: "Trigo",
-    abv: "6,5%",
-    desc: "Cerveza de trigo, textura suave y refrescante, con sabor ligeramente dulce y ácido, con aromas a plátano, clavo y especias. Este tipo de cerveza es muy popular en Alemania, especialmente en verano y eventos como el Oktoberfest.",
-    color: "from-amber-400/20 to-[#1a1512]",
-    accent: "text-amber-300",
+    abv: "6.5",
+    desc: "Cerveza de trigo, suave y refrescante, con sabor ligeramente dulce y aromas a plátano, clavo y especias.",
+    accent: "#e8d4a0",
     image: "https://images.unsplash.com/photo-1657223253573-05b63bc33bf3?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-amber-400/30 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-amber-400/50"
   },
   {
     name: "APA Maracuyá",
     style: "APA",
-    abv: "7,2%",
-    desc: "Cerveza ámbar, textura suave y refrescante, de amargor medio, marcado aroma y sabor a maracuyá con notas cítricas y herbales.",
-    color: "from-orange-500/20 to-[#1a1512]",
-    accent: "text-orange-400",
+    abv: "7.2",
+    desc: "Ámbar y refrescante, de amargor medio. Marcado aroma y sabor a maracuyá con notas cítricas y herbales.",
+    accent: "#e89a4d",
     image: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-orange-500/30 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-orange-500/50"
   },
   {
     name: "Pumpkin Ale",
     style: "Spiced Ale",
-    abv: "8,4%",
-    desc: "Cerveza ambar, fuerte y malteada de carácter dulce, que nos rememora a un pastel de calabaza. Su amargor suele ser muy suave con notas de canela, cremosa, dejando una sedosidad particular en boca.",
-    color: "from-orange-700/20 to-[#1a1512]",
-    accent: "text-orange-600",
+    abv: "8.4",
+    desc: "Ámbar fuerte y malteada de carácter dulce. Rememora un pastel de calabaza con canela, cremosa y sedosa.",
+    accent: "#c97c3a",
     image: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-orange-700/30 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-orange-700/50"
   },
   {
     name: "Old Belgian Tripel",
     style: "Tripel",
-    abv: "8%",
-    desc: "Cerveza dorada, cuerpo ligero, y sabores complejos que combinan notas a malta, frutas y especias, con un final seco y un alto contenido de alcohol.",
-    color: "from-yellow-700/20 to-[#1a1512]",
-    accent: "text-yellow-600",
+    abv: "8.0",
+    desc: "Dorada de cuerpo ligero. Sabores complejos: malta, frutas y especias con un final seco y alcohol elegante.",
+    accent: "#d4a647",
     image: "https://images.unsplash.com/photo-1657223253573-05b63bc33bf3?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-yellow-700/30 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-yellow-700/50"
   },
   {
     name: "India Pale Ale",
     style: "IPA",
-    abv: "7%",
-    desc: "Cerveza dorada, con gran cantidad de lúpulo, refrescante, donde domina el aroma y sabor intenso a frutas tropicales.",
-    color: "from-green-600/20 to-[#1a1512]",
-    accent: "text-green-500",
+    abv: "7.0",
+    desc: "Dorada con gran cantidad de lúpulo, refrescante. Domina el aroma y sabor intenso a frutas tropicales.",
+    accent: "#9bb56a",
     image: "https://images.unsplash.com/photo-1657223253573-05b63bc33bf3?q=80&w=600&auto=format&fit=crop",
-    gradientHover: "group-hover:from-green-600/30 group-hover:to-[#1a1512]",
-    borderHover: "group-hover:border-green-600/50"
   }
 ];
 
 export default function OurBeers() {
   return (
-    <section id="cervezas" className="py-24 md:py-32 bg-[#140e0b] relative overflow-hidden border-t border-[#2a2019]">
+    <section
+      id="cervezas"
+      className="relative py-32 md:py-44 bg-[#140e0b] overflow-hidden border-t border-white/[0.04]"
+    >
+      {/* Halo cálido tras el grid */}
+      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full bg-[#c4892b]/[0.04] blur-[160px]" />
 
-      {/* Subtle wood texture background for the section */}
-      <div className="absolute inset-0 z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgNDBMMDAgME00MCAwTTAgME00MCA0MEw0MCAwSDBNMCA0MEg0MCIgc3Ryb2tlPSJyZ0JhKDI1NSwyNTUsMjU1LDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiLz4KPC9zdmc+')] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)] opacity-30"></div>
+      <div className="container px-6 md:px-10 lg:px-16 mx-auto max-w-[1400px] relative z-10">
 
-      <div className="container px-6 mx-auto max-w-7xl relative z-10">
-
+        {/* Encabezado editorial */}
         <motion.div
-          className="text-center mb-16 md:mb-24 flex flex-col items-center"
-          initial={{ opacity: 0, y: 30 }}
+          className="flex flex-col items-center text-center mb-24 md:mb-32"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          style={{ willChange: "transform, opacity" }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Subtle Logo ornament */}
-          <motion.div
-            className="flex justify-center mb-6 opacity-80"
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-          >
-            <svg className="w-8 h-8 text-[#d97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3 10h18M7 15h1a4 4 0 004-4 4 4 0 004 4h1m-9 5h6" />
-            </svg>
-          </motion.div>
-          <h2 className="mb-4 text-[10px] md:text-xs tracking-[0.5em] text-[#d97706] uppercase font-gotham">Nuestra Selección</h2>
-          <h3 className="text-5xl md:text-7xl lg:text-8xl font-ganache text-stone-200 tracking-wide drop-shadow-sm leading-tight pb-2">Descubre Nuestras Cervezas</h3>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#d97706]/50 to-transparent mt-8"></div>
+          <span className="text-[10px] tracking-[0.5em] uppercase font-semibold text-[#c4892b] mb-8">
+            La Selección
+          </span>
+
+          <h3 className="font-display text-5xl md:text-7xl lg:text-8xl text-[#f1e8d6] tracking-tight leading-[0.95] max-w-4xl">
+            Nueve cervezas,
+            <span className="block font-display-italic text-[#e0a85a] mt-2">una sola obsesión</span>
+          </h3>
+
+          <p className="mt-10 max-w-xl text-[15px] leading-relaxed text-[#a89b85]">
+            Cada estilo es el resultado de meses de pruebas, maltas seleccionadas a mano y la paciencia que sólo la altura andina concede.
+          </p>
+
+          <span className="block w-16 h-px bg-[#c4892b]/40 mt-12" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        {/* Grid de tarjetas boutique */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-16 md:gap-y-20">
           {beers.map((beer, index) => (
-            <motion.div
-              key={index}
-              className={`group flex flex-col h-full bg-[#1a1512] bg-gradient-to-b ${beer.color} ${beer.gradientHover} border border-[#2a2019] rounded-sm transition-all duration-700 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] ${beer.borderHover} relative overflow-hidden`}
-              initial={{ opacity: 0, y: 40 }}
+            <motion.article
+              key={beer.name}
+              className="group relative flex flex-col"
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.9, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
               style={{ willChange: "transform, opacity" }}
             >
-
-              {/* Image Container */}
-              <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-[#140e0b]">
-                {/* Overlay gradient to blend image with card background */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1512] via-transparent to-transparent z-10"></div>
-
-                <img
-                  src={beer.image}
-                  alt={beer.name}
-                  className="object-cover w-full h-full opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
+              {/* Imagen — proporción retrato editorial */}
+              <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#0c0807] mb-7">
+                {/* Borde finísimo iluminado en hover */}
+                <span
+                  className="absolute inset-0 z-20 border border-white/[0.06] group-hover:border-[--c]/40 transition-colors duration-700 pointer-events-none"
+                  style={{ '--c': beer.accent }}
                 />
 
-                {/* Style Badge */}
-                <div className="absolute top-4 right-4 z-20">
-                  <span className="inline-block px-3 py-1 text-[9px] tracking-[0.2em] text-[#1a1512] uppercase bg-gradient-to-r from-[#fcd34d] to-[#d97706] rounded-sm font-gotham shadow-lg">
-                    {beer.style}
+                {/* Vignette inferior */}
+                <span className="absolute inset-0 z-10 bg-gradient-to-t from-[#0c0807] via-transparent to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none" />
+
+                <motion.img
+                  src={beer.image}
+                  alt={beer.name}
+                  className="object-cover w-full h-full grayscale-[0.2] saturate-[0.85] group-hover:grayscale-0 group-hover:saturate-100 transition-all duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                />
+
+                {/* Numeración editorial */}
+                <span className="absolute top-5 left-5 z-20 text-[10px] tracking-[0.4em] font-medium text-[#f1e8d6]/70 uppercase">
+                  N°{String(index + 1).padStart(2, '0')}
+                </span>
+
+                {/* Estilo */}
+                <span
+                  className="absolute top-5 right-5 z-20 text-[10px] tracking-[0.35em] font-medium uppercase"
+                  style={{ color: beer.accent }}
+                >
+                  {beer.style}
+                </span>
+
+                {/* ABV vertical en costado — toque editorial */}
+                <div className="absolute bottom-5 left-5 z-20 flex items-end gap-2">
+                  <span className="font-display text-5xl md:text-6xl text-[#f1e8d6] leading-none tracking-tight">
+                    {beer.abv}
+                  </span>
+                  <span className="text-[9px] tracking-[0.4em] uppercase text-[#f1e8d6]/60 pb-2">
+                    % Vol.
                   </span>
                 </div>
               </div>
 
-              {/* Content Container */}
-              <div className="flex flex-col flex-grow p-8 pt-4 z-20 relative">
+              {/* Información */}
+              <div className="flex flex-col">
+                {/* Hairline animado */}
+                <span
+                  className="block h-px w-12 bg-[--c] mb-5 origin-left transition-all duration-700 group-hover:w-24"
+                  style={{ '--c': beer.accent }}
+                />
 
-                <h4 className={`text-4xl lg:text-5xl font-ganache text-white mb-4 pt-2 ${beer.accent} transition-colors duration-500 drop-shadow-sm leading-none`}>
+                <h4 className="font-display text-3xl md:text-4xl text-[#f1e8d6] tracking-tight leading-tight mb-4 transition-transform duration-700 group-hover:-translate-y-0.5">
                   {beer.name}
                 </h4>
 
-                <p className="text-[14px] md:text-base text-stone-300 font-source leading-relaxed flex-grow mb-8 group-hover:text-stone-200 transition-colors duration-500">
+                <p className="text-[14px] leading-relaxed text-[#a89b85] max-w-md">
                   {beer.desc}
                 </p>
-
-                {/* Vintage Divider */}
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-[#453327] to-transparent mb-6 transition-colors duration-500 group-hover:via-[#d97706]/30"></div>
-
-                {/* Stats */}
-                <div className="flex w-full items-center">
-                  <div className="flex flex-col">
-                    <span className="text-[10px] uppercase font-gotham tracking-[0.2em] text-[#a8a29e] mb-1 group-hover:text-[#d97706] transition-colors duration-300">ABV</span>
-                    <span className="text-3xl font-gotham text-stone-300">{beer.abv}</span>
-                  </div>
-                </div>
-
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
+
+        {/* Pie de sección */}
+        <motion.div
+          className="flex flex-col items-center mt-32 md:mt-40 pt-16 border-t border-white/[0.06] text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+        >
+          <span className="text-[10px] tracking-[0.5em] uppercase text-[#c4892b]/80 mb-4">
+            Edición limitada
+          </span>
+          <p className="font-display-italic text-2xl md:text-3xl text-[#f1e8d6]/80 max-w-xl">
+            "Cada lote nace de la misma búsqueda: la honestidad del oficio."
+          </p>
+        </motion.div>
 
       </div>
     </section>

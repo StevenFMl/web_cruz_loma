@@ -5,115 +5,141 @@ export default function HeroSection() {
   return (
     <section className="relative flex flex-col justify-center items-center w-full min-h-screen overflow-hidden bg-[#1a1512]">
 
-      {/* Optimized Background */}
+      {/* Fondo cinematográfico */}
       <motion.div
         className="absolute inset-0 z-0"
-        initial={{ scale: 1.1, opacity: 0 }}
+        initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
         style={{ willChange: "transform, opacity" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1512]/95 via-[#1a1512]/75 to-[#1a1512] z-10"></div>
-        {/* Warmer glow without heavy CSS blur filter for high performance */}
+        {/* Capas de profundidad */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0807]/70 via-[#1a1512]/60 to-[#1a1512] z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1512]/40 via-transparent to-[#1a1512]/40 z-10" />
+
+        {/* Halo cálido pulsante (sutil) */}
         <motion.div
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[600px] z-10 rounded-full pointer-events-none opacity-60"
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140vw] max-w-[1100px] h-[700px] z-10 rounded-full pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(217,119,6,0.15) 0%, rgba(217,119,6,0) 70%)',
+            background: 'radial-gradient(circle, rgba(196,137,43,0.16) 0%, rgba(196,137,43,0) 65%)',
             willChange: "opacity"
           }}
-          animate={{ opacity: [0.4, 0.8, 0.4] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        ></motion.div>
+          animate={{ opacity: [0.5, 0.85, 0.5] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <img
           src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a?q=80&w=2070&auto=format&fit=crop"
-          alt="Cruz Loma Brewing Background"
-          className="object-cover w-full h-full opacity-40 mix-blend-luminosity sepia-[0.3]"
+          alt=""
+          aria-hidden="true"
+          className="object-cover w-full h-full opacity-35 mix-blend-luminosity sepia-[0.4]"
         />
       </motion.div>
 
-      {/* Main Content: Dynamic & Fast & Elegant */}
-      <div className="relative z-20 flex flex-col items-center text-center px-6 w-full mt-36 sm:mt-40 md:mt-32 lg:mt-24">
+      {/* Marco de página minimalista (lateral) */}
+      <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-8 z-20 origin-left -rotate-90">
+        <span className="text-[10px] tracking-[0.6em] uppercase text-[#a89b85]/50 font-medium">
+          Est. — Mitad del Mundo
+        </span>
+      </div>
+      <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-8 z-20 origin-right rotate-90">
+        <span className="text-[10px] tracking-[0.6em] uppercase text-[#a89b85]/50 font-medium">
+          Edición Artesanal
+        </span>
+      </div>
 
-        {/* Dynamic Tagline */}
+      {/* Contenido principal */}
+      <div className="relative z-20 flex flex-col items-center text-center px-6 w-full max-w-6xl mx-auto pt-32 pb-24">
+
+        {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="flex flex-col items-center"
-          style={{ willChange: "transform, opacity" }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="flex items-center gap-5 mb-10"
         >
-          <div className="flex items-center gap-4 mb-6 md:mb-8">
-            <span className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#d97706]/70"></span>
-            <span className="text-[#d97706] text-[10px] sm:text-xs md:text-sm tracking-[0.4em] uppercase font-bold font-sans">100% Ecuatoriana</span>
-            <span className="w-16 h-[1px] bg-gradient-to-l from-transparent to-[#d97706]/70"></span>
-          </div>
-
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[10rem] font-vintage text-stone-100 drop-shadow-[0_0_25px_rgba(217,119,6,0.2)] tracking-wider mb-4 leading-[1.1]">
-            <motion.span
-              className="block"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              style={{ willChange: "transform, opacity" }}
-            >
-
-            </motion.span>
-            <motion.span
-              className="block mt-2 lg:mt-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              style={{ willChange: "transform, opacity" }}
-            >
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#fde68a] via-[#fcd34d] to-[#d97706]">CERVEZA</span> ARTESANAL
-            </motion.span>
-          </h1>
+          <span className="w-12 h-px bg-[#c4892b]/60" />
+          <span className="text-[10px] sm:text-[11px] tracking-[0.5em] uppercase font-semibold text-[#e0a85a]">
+            100% Ecuatoriana
+          </span>
+          <span className="w-12 h-px bg-[#c4892b]/60" />
         </motion.div>
 
-        <motion.h2
-          className="text-[10px] sm:text-xs md:text-sm lg:text-base text-stone-300 font-sans tracking-[0.5em] uppercase font-light mb-12 drop-shadow-md"
-          initial={{ opacity: 0, y: 10 }}
+        {/* Titular display imponente */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 1.1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display text-[#f1e8d6] tracking-tight leading-[0.95] mb-2"
           style={{ willChange: "transform, opacity" }}
         >
-          El Sabor de la Mitad del Mundo
-        </motion.h2>
+          <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-light">
+            Cerveza
+          </span>
+          <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-display-italic text-[#e0a85a] -mt-2 lg:-mt-4">
+            artesanal
+          </span>
+        </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        {/* Subtítulo */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          style={{ willChange: "transform, opacity" }}
+          transition={{ duration: 0.9, delay: 0.6 }}
+          className="mt-12 text-xs sm:text-sm md:text-base text-[#a89b85] tracking-[0.4em] uppercase font-light max-w-xl"
+        >
+          El sabor de la mitad del mundo
+        </motion.p>
+
+        {/* Hairline */}
+        <motion.span
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="block w-24 h-px bg-[#c4892b]/40 mt-12 mb-12 origin-center"
+        />
+
+        {/* CTA — sin gradientes, tipográfico, refinado */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <a
             href="#cervezas"
-            className="group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-12 py-3.5 sm:py-4 text-xs sm:text-sm font-sans font-bold tracking-[0.2em] text-[#1a1512] uppercase bg-gradient-to-b from-[#fcd34d] to-[#d97706] rounded-sm shadow-[0_0_20px_rgba(217,119,6,0.3)] border border-[#b45309] transition-all duration-500 hover:shadow-[0_0_40px_rgba(217,119,6,0.6)] hover:-translate-y-1"
+            className="group relative inline-flex items-center gap-5 pl-10 pr-7 py-5 text-[11px] sm:text-xs font-semibold tracking-[0.4em] text-[#f1e8d6] uppercase border border-[#c4892b]/50 hover:border-[#e0a85a] transition-all duration-700 overflow-hidden"
           >
-            <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
-            <span className="relative flex items-center gap-3">
-              Explorar Variedades
-              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            {/* Fondo deslizante en hover */}
+            <span className="absolute inset-0 bg-[#c4892b] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+
+            <span className="relative z-10 transition-colors duration-500 group-hover:text-[#1a1512]">
+              Explorar variedades
+            </span>
+            <span className="relative z-10 flex items-center gap-1 transition-colors duration-500 group-hover:text-[#1a1512]">
+              <span className="block w-8 h-px bg-current transition-all duration-500 group-hover:w-12" />
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>
           </a>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Indicador de scroll */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-[#d97706]/70"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 text-[#c4892b]/70"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
+        transition={{ delay: 1.4, duration: 1 }}
       >
-        <span className="text-[9px] uppercase tracking-[0.3em] font-sans hidden sm:block">Descubrir</span>
-        <motion.div
-          className="w-px h-12 bg-gradient-to-b from-[#d97706] to-transparent"
-          animate={{ scaleY: [0, 1, 0], originY: [0, 0, 1] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        <span className="text-[9px] uppercase tracking-[0.4em] font-medium hidden sm:block">
+          Descubrir
+        </span>
+        <motion.span
+          className="block w-px h-14 bg-gradient-to-b from-[#c4892b] to-transparent"
+          animate={{ scaleY: [0, 1, 0] }}
+          style={{ transformOrigin: 'top' }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.div>
     </section>
